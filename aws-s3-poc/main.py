@@ -5,8 +5,7 @@ import boto3
 from tensorflow.keras.preprocessing import image
 import logging
 import os
-## POC only
-# boto3 AWS S3 Client, connect to s3 client and functions for pull and push
+
 
 DATASETS_BUCKET = "se-project-ext-datasets"
 OUTPUTS_BUCKET = "se-project-ext-outputs"
@@ -35,6 +34,7 @@ def my_logger():
 logger = my_logger()
 
 class S3Helper:
+
     def __init__(self, datasets_bucket, outputs_bucket, credentials = None):
         self.s3 = boto3.client('s3')
 
@@ -64,6 +64,7 @@ class S3Helper:
             plt.show()
         return img
 
+    # Update this fn to be a decorator call fn
     def upload_file(self, path):
         filename = path.split("/")[-1]
         self.s3.upload_file(
@@ -71,7 +72,7 @@ class S3Helper:
             Key = path,
             Filename = filename
         )
-        logger.info("File uploaded at: ", path)
+        logger.info("File uploaded at: {}".format(path))
 
     def list_objects(self, bucket, path = ""):
         resp = self.s3.list_objects_v2(Bucket=bucket)
@@ -90,6 +91,10 @@ def main():
     files = s3_helper.list_objects(DATASETS_BUCKET)
 
     logger.info(files)
+
+    s3_helper.upload_file("test-s3-poc/main.py.log")
+
+
 
 
 if __name__ == "__main__":
