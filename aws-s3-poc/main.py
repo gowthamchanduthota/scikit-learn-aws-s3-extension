@@ -95,6 +95,9 @@ def main():
     s3_helper.upload_file("test-s3-poc/main.py.log")
 
 
+s3_helper = S3Helper(DATASETS_BUCKET, OUTPUTS_BUCKET)
+
+s3_helper.get_img("sample/dog1.jpeg", True)
 
 
 if __name__ == "__main__":
