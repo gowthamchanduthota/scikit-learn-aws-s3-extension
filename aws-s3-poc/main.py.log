@@ -1,0 +1,9 @@
+[00:42:35] {/Users/gowtham/WorkSpace/UNT/SE/scikit-learn-aws-s3-extension/venv/lib/python3.9/site-packages/botocore/credentials.py:1278} INFO - Found credentials in shared credentials file: ~/.aws/credentials
+[00:42:36] {/Users/gowtham/WorkSpace/UNT/SE/scikit-learn-aws-s3-extension/aws-s3-poc/main.py:90} INFO - <PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=5184x3888 at 0x178329F10>
+[00:42:36] {/Users/gowtham/WorkSpace/UNT/SE/scikit-learn-aws-s3-extension/aws-s3-poc/main.py:94} INFO - sample/dog1.jpeg
+[00:50:21] {/Users/gowtham/WorkSpace/UNT/SE/scikit-learn-aws-s3-extension/venv/lib/python3.9/site-packages/botocore/credentials.py:1278} INFO - Found credentials in shared credentials file: ~/.aws/credentials
+[00:50:22] {/Users/gowtham/WorkSpace/UNT/SE/scikit-learn-aws-s3-extension/aws-s3-poc/main.py:88} INFO - <PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=5184x3888 at 0x1790A9F70>
+[00:50:22] {/Users/gowtham/WorkSpace/UNT/SE/scikit-learn-aws-s3-extension/aws-s3-poc/main.py:92} INFO - sample/dog1.jpeg
+[00:50:38] {/Users/gowtham/WorkSpace/UNT/SE/scikit-learn-aws-s3-extension/venv/lib/python3.9/site-packages/botocore/credentials.py:1278} INFO - Found credentials in shared credentials file: ~/.aws/credentials
+[00:51:16] {/Users/gowtham/WorkSpace/UNT/SE/scikit-learn-aws-s3-extension/venv/lib/python3.9/site-packages/botocore/credentials.py:1278} INFO - Found credentials in shared credentials file: ~/.aws/credentials
+[00:51:16] {/Users/gowtham/WorkSpace/UNT/SE/scikit-learn-aws-s3-extension/aws-s3-poc/main.py:74} INFO - File uploaded at: test-s3-poc/main.py.log
