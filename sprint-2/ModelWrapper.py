@@ -114,6 +114,9 @@ outputs_bucket = "se-project-ext-outputs"
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> f084357 (Added modelWrapper)
 class S3ModelWrapper(BaseEstimator, ClassifierMixin):
     def __init__(self, base_model, save_model = False, save_metrics = False,  s3_bucket = outputs_bucket):
 
@@ -124,8 +127,11 @@ class S3ModelWrapper(BaseEstimator, ClassifierMixin):
         #     "AWS_SECRET_ACCESS_KEY": aws_secret_access_key
         # })
 =======
+<<<<<<< HEAD
 =======
 >>>>>>> cf67fc8 (Added modelWrapper)
+=======
+>>>>>>> f084357 (Added modelWrapper)
 class ModelWrapper(BaseEstimator, ClassifierMixin):
     def __init__(self, base_model, save_model = False, save_metrics = False,  s3_bucket = outputs_bucket, aws_access_key_id=None, aws_secret_access_key=None):
 
@@ -135,6 +141,7 @@ class ModelWrapper(BaseEstimator, ClassifierMixin):
             "AWS_SECRET_ACCESS_KEY": aws_secret_access_key
         })
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 2bf8c60 (Added modelWrapper)
 =======
 class S3ModelWrapper(BaseEstimator, ClassifierMixin):
@@ -158,6 +165,9 @@ class S3ModelWrapper(BaseEstimator, ClassifierMixin):
 >>>>>>> cf67fc8 (Added modelWrapper)
 =======
 >>>>>>> 8819a0f (Added testcase file)
+=======
+>>>>>>> 2bf8c60 (Added modelWrapper)
+>>>>>>> f084357 (Added modelWrapper)
         self.s3_bucket = s3_bucket
         self.save_model = save_model
         self.save_metrics = save_metrics
@@ -166,12 +176,16 @@ class S3ModelWrapper(BaseEstimator, ClassifierMixin):
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> f084357 (Added modelWrapper)
     def fit(self, X, *args, **kwargs):
         self.base_model.fit(X, *args, **kwargs)
 =======
     def fit(self, X, y):
         self.base_model.fit(X, y)
 >>>>>>> 2bf8c60 (Added modelWrapper)
+<<<<<<< HEAD
 =======
     def fit(self, X, *args, **kwargs):
         self.base_model.fit(X, *args, **kwargs)
@@ -184,6 +198,8 @@ class S3ModelWrapper(BaseEstimator, ClassifierMixin):
     def fit(self, X, *args, **kwargs):
         self.base_model.fit(X, *args, **kwargs)
 >>>>>>> 8819a0f (Added testcase file)
+=======
+>>>>>>> f084357 (Added modelWrapper)
 
         # if self.save_model:
         #     self.save_model_to_s3("modell.pkl")
@@ -194,12 +210,16 @@ class S3ModelWrapper(BaseEstimator, ClassifierMixin):
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> f084357 (Added modelWrapper)
     def predict(self, X, *args, **kwargs):
         predictions = self.base_model.predict(X, *args, **kwargs)
 =======
     def predict(self, X):
         predictions = self.base_model.predict(X)
 >>>>>>> 2bf8c60 (Added modelWrapper)
+<<<<<<< HEAD
 =======
     def predict(self, X, *args, **kwargs):
         predictions = self.base_model.predict(X, *args, **kwargs)
@@ -212,6 +232,8 @@ class S3ModelWrapper(BaseEstimator, ClassifierMixin):
     def predict(self, X, *args, **kwargs):
         predictions = self.base_model.predict(X, *args, **kwargs)
 >>>>>>> 8819a0f (Added testcase file)
+=======
+>>>>>>> f084357 (Added modelWrapper)
 
         # if self.save_metrics:
         #     self.save_predictions_to_s3(predictions= predictions, filename="modelpred.csv")
@@ -222,10 +244,13 @@ class S3ModelWrapper(BaseEstimator, ClassifierMixin):
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3119f38 (Added testcase file)
 =======
 >>>>>>> 8819a0f (Added testcase file)
+=======
+>>>>>>> f084357 (Added modelWrapper)
     def compile(self, *args, **kwargs):
         complied_model = self.base_model.compile(*args, **kwargs)
         return complied_model
@@ -236,6 +261,7 @@ class S3ModelWrapper(BaseEstimator, ClassifierMixin):
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 2bf8c60 (Added modelWrapper)
 =======
@@ -244,6 +270,10 @@ class S3ModelWrapper(BaseEstimator, ClassifierMixin):
 >>>>>>> cf67fc8 (Added modelWrapper)
 =======
 >>>>>>> 8819a0f (Added testcase file)
+=======
+=======
+>>>>>>> 2bf8c60 (Added modelWrapper)
+>>>>>>> f084357 (Added modelWrapper)
 
     def save_model_to_s3(self, model_filename):
         # TODO - Sprint #3
@@ -273,10 +303,13 @@ class S3ModelWrapper(BaseEstimator, ClassifierMixin):
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 3119f38 (Added testcase file)
 =======
 >>>>>>> 8819a0f (Added testcase file)
+=======
+>>>>>>> f084357 (Added modelWrapper)
 def usage():
     # sample code
     base_model = LogisticRegression()
@@ -299,6 +332,7 @@ def usage():
 =======
 # base_model = LogisticRegression()
 # model = S3ModelWrapper(base_model, s3_bucket=outputs_bucket)
+<<<<<<< HEAD
 =======
 >>>>>>> 3119f38 (Added testcase file)
 
@@ -340,3 +374,14 @@ def usage():
     s3_model.save_predictions_to_s3(predictions, 'predictions.csv')
 >>>>>>> a56ddc3 (Added testcase file)
 >>>>>>> 8819a0f (Added testcase file)
+=======
+
+# model.fit(X_train, y_train)
+
+# predictions = s3_model.predict(X_test)
+
+# s3_model.save_model_to_s3('logistic_model.pkl')
+# s3_model.save_predictions_to_s3(predictions, 'predictions.csv')
+>>>>>>> ed915f3 (Added modelWrapper)
+>>>>>>> 2bf8c60 (Added modelWrapper)
+>>>>>>> f084357 (Added modelWrapper)
