@@ -1,0 +1,10 @@
+[12:10:35] {/Users/gowtham/venv/lib/python3.9/site-packages/botocore/credentials.py:1278} INFO - Found credentials in shared credentials file: ~/.aws/credentials
+[12:10:36] {/Users/gowtham/WorkSpace/UNT/SE/scikit-learn-aws-s3-extension/aws-s3-poc/main.py:108} INFO - sample/dog1.jpeg
+[12:11:31] {/Users/gowtham/venv/lib/python3.9/site-packages/botocore/credentials.py:1278} INFO - Found credentials in shared credentials file: ~/.aws/credentials
+[12:11:32] {/Users/gowtham/WorkSpace/UNT/SE/scikit-learn-aws-s3-extension/aws-s3-poc/main.py:107} INFO - Printing list: 
+[12:11:32] {/Users/gowtham/WorkSpace/UNT/SE/scikit-learn-aws-s3-extension/aws-s3-poc/main.py:108} INFO - sample/dog1.jpeg
+[12:11:32] {/Users/gowtham/WorkSpace/UNT/SE/scikit-learn-aws-s3-extension/aws-s3-poc/main.py:109} INFO - Done Printing
+[12:12:19] {/Users/gowtham/venv/lib/python3.9/site-packages/botocore/credentials.py:1278} INFO - Found credentials in shared credentials file: ~/.aws/credentials
+[12:12:20] {/Users/gowtham/WorkSpace/UNT/SE/scikit-learn-aws-s3-extension/aws-s3-poc/main.py:108} INFO - Printing list: 
+[12:12:20] {/Users/gowtham/WorkSpace/UNT/SE/scikit-learn-aws-s3-extension/aws-s3-poc/main.py:109} INFO - ['sample/', 'sample/dog1.jpeg']
+[12:12:20] {/Users/gowtham/WorkSpace/UNT/SE/scikit-learn-aws-s3-extension/aws-s3-poc/main.py:110} INFO - Done Printing
