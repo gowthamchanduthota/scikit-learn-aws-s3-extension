@@ -136,7 +136,8 @@ def main():
     logger.info(files)
 
     # Get a fraction of files from
-    frac_files = s3_helper.get_frac(0.1, path="UTKFace", random_seed=42, download_files=False)
+    frac_files = s3_helper.get_frac(0.1, path="UTKFace", random_seed=42, download_files=True)
+
     logger.info("Printing list: ")
     logger.info(len(frac_files))
     logger.info(frac_files)
