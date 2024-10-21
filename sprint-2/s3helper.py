@@ -18,15 +18,28 @@ logger = logging.getLogger(__name__)
 
 class S3Helper:
     def __init__(self, datasets_bucket=DATASETS_BUCKET, outputs_bucket=OUTPUTS_BUCKET, credentials=None):
+<<<<<<< HEAD
+=======
+        if credentials:
+            session = boto3.Session(
+                aws_access_key_id=credentials.get("AWS_ACCESS_KEY_ID"),
+                aws_secret_access_key=credentials.get("AWS_SECRET_ACCESS_KEY"),
+            )
+            self.s3 = session.client('s3')
+            logger.info("Using provided AWS credentials.")
+        else:
+            self.s3 = boto3.client('s3')
+
+>>>>>>> cf67fc8 (Added modelWrapper)
         self.datasets_bucket = datasets_bucket
         self.outputs_bucket = outputs_bucket
-        
+
         # Create an S3 client
         self.s3 = boto3.client('s3') if not credentials else boto3.Session(
             aws_access_key_id=credentials["AWS_ACCESS_KEY_ID"],
             aws_secret_access_key=credentials["AWS_SECRET_ACCESS_KEY"]
         ).client('s3')
-        
+
         logger.info("Initialized S3Helper.")
 
     def get_img(self, path, show=False, greyscale=False):
@@ -54,7 +67,7 @@ class S3Helper:
         """
         s3_key = s3_key or os.path.basename(file_name)
         bucket = bucket or self.outputs_bucket
-        
+
         self.s3.upload_file(file_name, bucket, s3_key)
         logger.info("File uploaded to %s/%s", bucket, s3_key)
 
@@ -64,7 +77,7 @@ class S3Helper:
         """
         bucket = bucket or self.datasets_bucket
         paginator = self.s3.get_paginator("list_objects_v2")
-        
+
         keys = [
             obj["Key"] for page in paginator.paginate(Bucket=bucket, Prefix=path)
             for obj in page.get("Contents", [])
@@ -77,6 +90,7 @@ class S3Helper:
         Retrieve a fraction of files from S3 at the specified path.
         """
         obj_list = self.list_objects(self.datasets_bucket, path)
+<<<<<<< HEAD
         frac_len = max(1, int(len(obj_list) * frac))  # Ensure at least one object is chosen
 
         random.seed(random_seed)
@@ -91,6 +105,21 @@ class S3Helper:
             logger.info("Downloaded sampled files to local path: %s", path)
 
         return sampled_keys
+=======
+        frac_len = int(len(obj_list) * frac)
+
+        random.seed(random_seed)
+        rand_list = random.sample(obj_list, frac_len)
+
+        if download_files:
+            for it in rand_list:
+                local_dir = os.path.dirname(it)
+                os.makedirs(local_dir, exist_ok=True)
+                self.s3.download_file(self.datasets_bucket, it, it)
+            logger.info("Downloaded %d files to %s", frac_len, path)
+
+        return rand_list
+>>>>>>> cf67fc8 (Added modelWrapper)
 
 def main():
     """

@@ -47,11 +47,11 @@ class S3DataGenerator(tf.keras.utils.Sequence):
             image_data = self.s3_client.get_img("UTKFace/" + file_key)
             image = image_data.resize(self.img_size).convert('L')
             image = np.array(image)
-            
+
             # Simple augmentation: Horizontal flip with 50% chance
             if np.random.rand() > 0.5:
                 image = np.fliplr(image)
-            
+
             X[i,] = np.expand_dims(image, axis=-1) / 255.0  # Normalize
             y_age[i] = self.labels_age[batch_indexes[i]]
             y_gender[i] = self.labels_gender[batch_indexes[i]]
