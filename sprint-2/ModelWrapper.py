@@ -44,12 +44,12 @@ class S3ModelWrapper(BaseEstimator, ClassifierMixin):
         summary = self.base_model.summary(*args, **kwargs)
         return summary
 
-
     def save_model_to_s3(self, model_filename):
         # TODO - Sprint #3
         # Save model to S3 outputs buckets.
         with open(model_filename, 'wb') as model_file:
             pickle.dump(self.base_model, model_file)
+
 
 
         # self.s3_client.upload_file(model_filename, self.s3_bucket, model_filename)
@@ -72,11 +72,11 @@ class S3ModelWrapper(BaseEstimator, ClassifierMixin):
 def usage():
     # sample code
     base_model = LogisticRegression()
-    model = S3ModelWrapper(base_model, s3_bucket=outputs_bucket)
+    s3_model = S3ModelWrapper(base_model, s3_bucket=outputs_bucket)
 
-    model.fit(X_train, y_train)
+    s3_model.fit(X_train, y_train)
 
     predictions = s3_model.predict(X_test)
 
-    s3_model.save_model_to_s3('logistic_model.pkl')
-    s3_model.save_predictions_to_s3(predictions, 'predictions.csv')
+    # s3_model.save_model_to_s3('logistic_model.pkl')
+    # s3_model.save_predictions_to_s3(predictions, 'predictions.csv')
