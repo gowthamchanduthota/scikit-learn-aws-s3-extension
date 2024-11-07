@@ -15,11 +15,11 @@ class S3DataGenerator(tf.keras.utils.Sequence):
         self.img_size = img_size
         self.n_channels = n_channels
         self.shuffle = shuffle
-
-        self.s3_client = S3Helper(datasets_bucket=bucket_name, credentials={
-            "AWS_ACCESS_KEY_ID" :  aws_access_key_id,
-            "AWS_SECRET_ACCESS_KEY": aws_secret_access_key
-        })
+        self.s3_client = S3Helper(datasets_bucket=bucket_name)
+        # self.s3_client = S3Helper(datasets_bucket=bucket_name, credentials={
+        #     "AWS_ACCESS_KEY_ID" :  aws_access_key_id,
+        #     "AWS_SECRET_ACCESS_KEY": aws_secret_access_key
+        # })
         self.indexes = np.arange(len(self.file_keys))
         self.on_epoch_end()
 

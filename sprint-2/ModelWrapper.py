@@ -7,33 +7,42 @@ from s3helper import *
 
 outputs_bucket = "se-project-ext-outputs"
 
-class ModelWrapper(BaseEstimator, ClassifierMixin):
-    def __init__(self, base_model, save_model = False, save_metrics = False,  s3_bucket = outputs_bucket, aws_access_key_id=None, aws_secret_access_key=None):
+class S3ModelWrapper(BaseEstimator, ClassifierMixin):
+    def __init__(self, base_model, save_model = False, save_metrics = False,  s3_bucket = outputs_bucket):
 
         self.base_model = base_model
-        self.s3_client = S3Helper(outputs_bucket = s3_bucket, credentials= {
-            "AWS_ACCESS_KEY_ID" :  aws_access_key_id,
-            "AWS_SECRET_ACCESS_KEY": aws_secret_access_key
-        })
+        self.s3_client = S3Helper(outputs_bucket = s3_bucket)
+        # self.s3_client = S3Helper(outputs_bucket = s3_bucket, credentials= {
+        #     "AWS_ACCESS_KEY_ID" :  aws_access_key_id,
+        #     "AWS_SECRET_ACCESS_KEY": aws_secret_access_key
+        # })
         self.s3_bucket = s3_bucket
         self.save_model = save_model
         self.save_metrics = save_metrics
 
-    def fit(self, X, y):
-        self.base_model.fit(X, y)
+    def fit(self, X, *args, **kwargs):
+        self.base_model.fit(X, *args, **kwargs)
 
         # if self.save_model:
         #     self.save_model_to_s3("modell.pkl")
 
         return self
 
-    def predict(self, X):
-        predictions = self.base_model.predict(X)
+    def predict(self, X, *args, **kwargs):
+        predictions = self.base_model.predict(X, *args, **kwargs)
 
         # if self.save_metrics:
         #     self.save_predictions_to_s3(predictions= predictions, filename="modelpred.csv")
 
         return predictions
+
+    def compile(self, *args, **kwargs):
+        complied_model = self.base_model.compile(*args, **kwargs)
+        return complied_model
+
+    def summary(self, *args, **kwargs):
+        summary = self.base_model.summary(*args, **kwargs)
+        return summary
 
 
     def save_model_to_s3(self, model_filename):
@@ -60,12 +69,14 @@ class ModelWrapper(BaseEstimator, ClassifierMixin):
         # print(f"Predictions saved to S3 bucket '{self.s3_bucket}' as {filename}.")
 
 
-# base_model = LogisticRegression()
-# model = S3ModelWrapper(base_model, s3_bucket=outputs_bucket)
+def usage():
+    # sample code
+    base_model = LogisticRegression()
+    model = S3ModelWrapper(base_model, s3_bucket=outputs_bucket)
 
-# model.fit(X_train, y_train)
+    model.fit(X_train, y_train)
 
-# predictions = s3_model.predict(X_test)
+    predictions = s3_model.predict(X_test)
 
-# s3_model.save_model_to_s3('logistic_model.pkl')
-# s3_model.save_predictions_to_s3(predictions, 'predictions.csv')
+    s3_model.save_model_to_s3('logistic_model.pkl')
+    s3_model.save_predictions_to_s3(predictions, 'predictions.csv')
