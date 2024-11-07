@@ -48,6 +48,11 @@ class S3Helper:
             imgrd = mpimg.imread(filename)
             plt.imshow(imgrd)
             plt.show()
+        try:
+            os.remove(filename)
+        except Exception as e:
+            print("Failed to download file")
+
         return img
 
     # Update this fn to be a decorator call fn
