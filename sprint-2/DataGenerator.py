@@ -41,7 +41,7 @@ class S3DataGenerator(tf.keras.utils.Sequence):
         X = np.empty((self.batch_size, *self.img_size, self.n_channels))
         y_age = np.empty((self.batch_size), dtype=float)
         y_gender = np.empty((self.batch_size), dtype=int)
-
+        print(X.shape)
         for i, file_key in enumerate(batch_file_keys):
             # response = self.s3_client.get_object(Bucket=self.bucket_name, Key="UTKFace/" + file_key)
             # image_data = response['Body'].read()
