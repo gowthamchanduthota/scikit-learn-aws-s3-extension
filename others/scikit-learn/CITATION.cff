@@ -40,6 +40,7 @@ preferred-citation:
     given-names: "Matthieu"
   - family-names: "Duchesnay"
     given-names: "Édouard"
+
   journal: "Journal of Machine Learning Research"
   volume: 12
   start: 2825
