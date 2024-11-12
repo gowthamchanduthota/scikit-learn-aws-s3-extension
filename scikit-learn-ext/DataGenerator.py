@@ -1,8 +1,6 @@
 import numpy as np
 import tensorflow as tf
-import boto3
 from PIL import Image
-import io
 from s3helper import *
 
 class S3DataGenerator(tf.keras.utils.Sequence):
@@ -17,7 +15,7 @@ class S3DataGenerator(tf.keras.utils.Sequence):
         self.shuffle = shuffle
 
         self.s3_client = S3Helper(datasets_bucket=bucket_name, credentials={
-            "AWS_ACCESS_KEY_ID" :  aws_access_key_id,
+            "AWS_ACCESS_KEY_ID": aws_access_key_id,
             "AWS_SECRET_ACCESS_KEY": aws_secret_access_key
         })
         self.indexes = np.arange(len(self.file_keys))
@@ -38,20 +36,18 @@ class S3DataGenerator(tf.keras.utils.Sequence):
             np.random.shuffle(self.indexes)
 
     def __data_generation(self, batch_file_keys, batch_indexes):
-        X = np.empty((self.batch_size, *self.img_size, self.n_channels))
-        y_age = np.empty((self.batch_size), dtype=float)
-        y_gender = np.empty((self.batch_size), dtype=int)
+        X = np.zeros((self.batch_size, *self.img_size, self.n_channels), dtype=np.float32)
+        y_age = np.zeros((self.batch_size,), dtype=np.float32)
+        y_gender = np.zeros((self.batch_size,), dtype=np.int32)
 
-        for i, file_key in enumerate(batch_file_keys):
-            # response = self.s3_client.get_object(Bucket=self.bucket_name, Key="UTKFace/" + file_key)
-            # image_data = response['Body'].read()
-            image_data = self.s3_client.get_img("UTKFace/" + file_key)
-            # image = Image.open(io.BytesIO(image_data)).resize(self.img_size).convert('L')
+        for i, (file_key, idx) in enumerate(zip(batch_file_keys, batch_indexes)):
+            # Load and preprocess image from S3
+            image_data = self.s3_client.get_img(f"UTKFace/{file_key}")
             image = image_data.resize(self.img_size).convert('L')
-            image = np.array(image)
-            X[i,] = np.expand_dims(image, axis=-1) / 255.0  # Normalize
+            X[i] = np.expand_dims(np.array(image) / 255.0, axis=-1)  # Normalize and expand dims
 
-            y_age[i] = self.labels_age[batch_indexes[i]]
-            y_gender[i] = self.labels_gender[batch_indexes[i]]
+            # Load labels
+            y_age[i] = self.labels_age[idx]
+            y_gender[i] = self.labels_gender[idx]
 
         return X, y_age, y_gender
