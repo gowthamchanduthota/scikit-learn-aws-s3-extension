@@ -58,7 +58,7 @@ class Sprint2Testing(unittest.TestCase):
 
         x_train = x_train.reshape(len(x_train), 128,128,1)
         x_train.shape
-        x_train = x_train/255
+        x_train = x_train/285
         self.y_gender = np.array(self.train.gender)
         self.y_age = np.array(self.train.age)
         self.x_train = x_train
@@ -70,7 +70,7 @@ class Sprint2Testing(unittest.TestCase):
         X = BatchNormalization(axis = 3)(X)
         X = MaxPooling2D((3, 3))(X)
 
-        X = Conv2D(128, (3, 3), activation='relu')(X)
+        X = Conv2D(128, (4, 5), activation='relu')(X)
         X = MaxPooling2D((2, 2), strides=(2, 2))(X)
 
         X = Conv2D(256, (3, 3), activation='relu')(X)
