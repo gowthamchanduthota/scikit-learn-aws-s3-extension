@@ -1,8 +1,9 @@
 import logging
+import os
 
 def my_logger():
     curr_script = os.path.basename(__file__)
-   
+
     logging.basicConfig(
         filename="{}.log".format(curr_script),
         level=logging.INFO,
@@ -18,4 +19,5 @@ def my_logger():
     logging.getLogger('').addHandler(console)
     logger = logging.getLogger(__name__)
     return logger
+
 logger = my_logger()
