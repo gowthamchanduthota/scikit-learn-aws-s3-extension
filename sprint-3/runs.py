@@ -1,10 +1,17 @@
+#import libraries
 import os
+import PIL
 import cv2
+import glob
 import numpy as np
 from tkinter import *
 
 from PIL import Image, ImageDraw, ImageGrab
+
+
+#load model
 from keras.models import load_model
+<<<<<<< HEAD
 
 # Load model
 model = load_model('model.h5')
@@ -14,8 +21,18 @@ print("Model loaded successfully, go for the app")
 root = Tk()
 root.resizable(0, 0)
 root.title("Handwritten Digit Recognition GUI App")
+=======
+model = load_model('model.h5')
+print("Model load Successfully, Go for the APP")
 
-# Initialize variables
+>>>>>>> f7341cf (Added digit rec)
+
+#create a main window first (named as root) •
+root = Tk( )
+root. resizable (0, 0)
+root. title ("Handwritten Digit Recognition GUI App")
+
+#Initialize few variables
 lastx, lasty = None, None
 image_number = 0
 
