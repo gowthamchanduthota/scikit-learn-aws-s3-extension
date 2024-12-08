@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 12:01:12] {/Users/gowtham/WorkSpace/myenv/lib/python3.9/site-packages/botocore/credentials.py:1278} INFO - Found credentials in shared credentials file: ~/.aws/credentials
+=======
+[12:01:12] {/Users/gowtham/WorkSpace/myenv/lib/python3.9/site-packages/botocore/credentials.py:1278} INFO - Found credentials in shared credentials file: ~/.aws/credentials
+>>>>>>> 4c0f327 (Added E2E module merging complete changes and modules)
 [12:01:18] {/var/folders/58/nvkqn1wd2tq7_ht3yhwmsh580000gn/T/ipykernel_40285/3453806881.py:7} INFO - Model loaded successfully, ready to use the APP.
 [12:01:48] {/var/folders/58/nvkqn1wd2tq7_ht3yhwmsh580000gn/T/ipykernel_40285/3453806881.py:7} INFO - Model loaded successfully, ready to use the APP.
 [12:01:54] {/var/folders/58/nvkqn1wd2tq7_ht3yhwmsh580000gn/T/ipykernel_40285/392183581.py:40} INFO - Before, None
@@ -7,6 +11,7 @@
 [12:02:12] {/var/folders/58/nvkqn1wd2tq7_ht3yhwmsh580000gn/T/ipykernel_40285/392183581.py:40} INFO - Before, None
 [12:02:12] {/var/folders/58/nvkqn1wd2tq7_ht3yhwmsh580000gn/T/ipykernel_40285/392183581.py:42} INFO - Mid Validation, 8
 [12:02:12] {/var/folders/58/nvkqn1wd2tq7_ht3yhwmsh580000gn/T/ipykernel_40285/392183581.py:54} INFO - Final Predcition, 8
+<<<<<<< HEAD
 [13:01:43] {/var/folders/58/nvkqn1wd2tq7_ht3yhwmsh580000gn/T/ipykernel_40285/3453806881.py:7} INFO - Model loaded successfully, ready to use the APP.
 [13:21:13] {/var/folders/58/nvkqn1wd2tq7_ht3yhwmsh580000gn/T/ipykernel_40285/3453806881.py:7} INFO - Model loaded successfully, ready to use the APP.
 [13:22:05] {/var/folders/58/nvkqn1wd2tq7_ht3yhwmsh580000gn/T/ipykernel_40285/392183581.py:40} INFO - Before, None
@@ -129,3 +134,5 @@
 [19:51:00] {/Users/gowtham/WorkSpace/UNT/SE/scikit-learn-aws-s3-extension/E2E/Examples/guiscript.py:101} INFO - Before, None
 [19:51:00] {/Users/gowtham/WorkSpace/UNT/SE/scikit-learn-aws-s3-extension/E2E/Examples/guiscript.py:103} INFO - Mid Validation, 8
 [19:51:01] {/Users/gowtham/WorkSpace/UNT/SE/scikit-learn-aws-s3-extension/E2E/Examples/guiscript.py:115} INFO - Final Predcition, 8
+=======
+>>>>>>> 4c0f327 (Added E2E module merging complete changes and modules)
