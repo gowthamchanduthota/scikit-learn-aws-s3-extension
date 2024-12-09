@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import tkinter as tk
 from PIL import ImageGrab, Image
 import numpy as np
@@ -7,12 +8,16 @@ import cv2
 # Load the trained model
 model = tf.keras.models.load_model("model.h5")
 
+=======
+# Initialize the GUI
+>>>>>>> 106b4da (Update main.py)
 class DigitRecognizerApp:
     def __init__(self, root):
         """Initialize the application."""
         self.root = root
         self.root.title("Handwritten Digit Recognizer")
 
+<<<<<<< HEAD
         # Canvas for drawing
         self.canvas = tk.Canvas(self.root, width=300, height=300, bg="white", cursor="cross")
         self.canvas.pack(pady=10)
@@ -21,6 +26,24 @@ class DigitRecognizerApp:
         # Buttons for actions
         button_frame = tk.Frame(self.root)
         button_frame.pack()
+=======
+        # Add a title label
+        self.title_label = tk.Label(root, text="Draw a digit below and click Recognize", font=("Helvetica", 14))
+        self.title_label.pack()
+
+        # Create a canvas for drawing
+        self.canvas = tk.Canvas(root, width=300, height=300, bg="white")
+        self.canvas.pack()
+        self.canvas.bind("<B1-Motion>", self.draw)
+
+        # Add a status label
+        self.status_label = tk.Label(root, text="Status: Waiting for input", font=("Helvetica", 12), fg="green")
+        self.status_label.pack()
+
+        # Button to recognize digits
+        self.recognize_button = tk.Button(root, text="Recognize", command=self.recognize)
+        self.recognize_button.pack()
+>>>>>>> 106b4da (Update main.py)
 
         self.recognize_button = tk.Button(button_frame, text="Recognize", command=self.recognize, width=10)
         self.recognize_button.pack(side="left", padx=5)
@@ -37,6 +60,7 @@ class DigitRecognizerApp:
     def clear_canvas(self):
         """Clear the canvas."""
         self.canvas.delete("all")
+        self.status_label.config(text="Status: Canvas cleared", fg="blue")
 
     def recognize(self):
         """Recognize the digit(s) drawn on the canvas."""
@@ -50,7 +74,14 @@ class DigitRecognizerApp:
         _, thresh = cv2.threshold(image_np, 128, 255, cv2.THRESH_BINARY_INV)
         contours, _ = cv2.findContours(thresh, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 
+<<<<<<< HEAD
         # Process each detected contour
+=======
+        if contours:
+            self.status_label.config(text="Status: Recognizing digit...", fg="orange")
+
+        # Recognize each digit in bounding boxes
+>>>>>>> 106b4da (Update main.py)
         for contour in contours:
             x, y, w, h = cv2.boundingRect(contour)
             digit_image = image_np[y:y + h, x:x + w]
@@ -68,8 +99,17 @@ class DigitRecognizerApp:
             self.canvas.create_rectangle(x, y, x + w, y + h, outline="red", width=2)
             self.canvas.create_text(x + w // 2, y - 10, text=str(digit), fill="blue", font=("Arial", 12, "bold"))
 
+        self.status_label.config(text="Status: Recognition complete", fg="green")
+
 # Initialize the Tkinter root and app
+<<<<<<< HEAD
 if __name__ == "__main__":
     root = tk.Tk()
     app = DigitRecognizerApp(root)
     root.mainloop()
+=======
+root = tk.Tk()
+app = DigitRecognizerApp(root)
+root.mainloop()
+
+>>>>>>> 106b4da (Update main.py)
