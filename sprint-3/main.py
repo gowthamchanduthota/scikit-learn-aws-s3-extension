@@ -63,18 +63,6 @@ class DigitRecognizerApp:
         r = 8  # Radius of the drawn circle
         self.canvas.create_oval(x - r, y - r, x + r, y + r, fill="black")
 
-<<<<<<< HEAD
-=======
-    def clear_canvas(self):
-        """Clear the canvas."""
-        self.canvas.delete("all")
-        self.status_label.config(text="Status: Canvas cleared", fg="blue")
-
-    def reset(self):
-        """Reset the canvas and any predictions."""
-        self.clear_canvas()
-
->>>>>>> 63b2e1f (Update main.py)
     def recognize(self):
         """Recognize the digit drawn on the canvas."""
         try:
@@ -97,7 +85,7 @@ class DigitRecognizerApp:
             digit = np.argmax(prediction)
 
                 # Display the result
-                messagebox.showinfo("Recognition Result", f"Predicted Digit: {digit}")
+            messagebox.showinfo("Recognition Result", f"Predicted Digit: {digit}")
 
         except Exception as e:
             messagebox.showerror("Error", f"An error occurred during recognition: {e}")
