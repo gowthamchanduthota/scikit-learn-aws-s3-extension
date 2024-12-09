@@ -37,26 +37,24 @@ def draw_lines(event):
     global lastx, lasty
     x, y = event.x, event.y
     # Draw on canvas
-    cv.create_line((lastx, lasty, x, y), width=8, fill='black', capstyle=ROUND, smooth=TRUE, splinesteps=12)
+    cv.create_line((lastx, lasty, x, y), width=8, fill='black', capstyle=ROUND, smooth=True, splinesteps=12)
     lastx, lasty = x, y
 
 
 def recognize_digit():
     global image_number
-    filename = f'image_{image_number}.png'
-
-    # Get the widget coordinates
+    # Grab the widget coordinates
     x = root.winfo_rootx() + cv.winfo_x()
     y = root.winfo_rooty() + cv.winfo_y()
     x1 = x + cv.winfo_width()
     y1 = y + cv.winfo_height()
 
-    # Grab the canvas image, crop it, and save as PNG
-    ImageGrab.grab().crop((x, y, x1, y1)).save(filename)
+    # Grab the canvas image directly into a numpy array
+    img = ImageGrab.grab(bbox=(x, y, x1, y1))
+    img_np = np.array(img)
 
-    # Read the image in grayscale
-    image = cv2.imread(filename, cv2.IMREAD_COLOR)
-    gray = cv2.cvtColor(image, cv2.COLOR_Black)
+    # Convert RGB to grayscale
+    gray = cv2.cvtColor(img_np, cv2.COLOR_RGB2GRAY)
 
     # Apply Otsu's thresholding
     _, th = cv2.threshold(gray, 0, 255, cv2.THRESH_BINARY_INV + cv2.THRESH_OTSU)
@@ -67,7 +65,7 @@ def recognize_digit():
     for count in contours:
         # Get bounding box and extract the region of interest (ROI)
         x, y, w, h = cv2.boundingRect(count)
-        cv2.rectangle(image, (x, y), (x + w, y + h), (255, 0, 0), 1)
+        cv2.rectangle(img_np, (x, y), (x + w, y + h), (255, 0, 0), 1)
 
         # Extract the ROI with some padding
         top, bottom, left, right = int(0.05 * th.shape[0]), int(0.05 * th.shape[0]), int(0.05 * th.shape[1]), int(0.05 * th.shape[1])
@@ -89,10 +87,10 @@ def recognize_digit():
         font_scale = 0.5
         color = (255, 0, 0)
         thickness = 1
-        cv2.putText(image, data, (x, y - 5), font, font_scale, color, thickness)
+        cv2.putText(img_np, data, (x, y - 5), font, font_scale, color, thickness)
 
     # Show the image with predictions
-    cv2.imshow('Predicted Image', image)
+    cv2.imshow('Predicted Image', img_np)
     cv2.waitKey(0)
     cv2.destroyAllWindows()
 
