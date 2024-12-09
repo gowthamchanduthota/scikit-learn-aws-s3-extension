@@ -1,12 +1,3 @@
-import tkinter as tk
-from PIL import ImageGrab, Image
-import numpy as np
-import tensorflow as tf
-import cv2
-
-# Load the trained model
-model = tf.keras.models.load_model("model.h5")
-
 # Initialize the GUI
 class DigitRecognizerApp:
     def __init__(self, root):
@@ -34,15 +25,15 @@ class DigitRecognizerApp:
         self.clear_button = tk.Button(root, text="Clear", command=self.clear_canvas)
         self.clear_button.pack()
 
-        # Store drawing data
-        self.drawing = []
+        # Button to quit the app
+        self.quit_button = tk.Button(root, text="Quit", command=root.quit)
+        self.quit_button.pack()
 
     def draw(self, event):
         # Draw on the canvas
         x, y = event.x, event.y
         r = 8
         self.canvas.create_oval(x - r, y - r, x + r, y + r, fill="black")
-        self.drawing.append((x, y))
 
     def clear_canvas(self):
         self.canvas.delete("all")
@@ -56,10 +47,8 @@ class DigitRecognizerApp:
         y1 = y + self.canvas.winfo_height()
         image = ImageGrab.grab().crop((x, y, x1, y1)).convert("L")
 
-        # Convert to numpy array and process the image
+        # Process the image for bounding box detection
         image_np = np.array(image)
-
-        # Preprocess the image
         _, thresh = cv2.threshold(image_np, 128, 255, cv2.THRESH_BINARY_INV)
         contours, _ = cv2.findContours(thresh, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 
@@ -73,8 +62,6 @@ class DigitRecognizerApp:
             digit_image = cv2.resize(digit_image, (28, 28))
             digit_image = digit_image / 255.0
             digit_image = digit_image.reshape(1, 28, 28, 1)
-
-            # Make prediction
             prediction = model.predict(digit_image)
             digit = np.argmax(prediction)
 

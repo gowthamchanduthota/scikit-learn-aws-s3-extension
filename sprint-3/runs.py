@@ -2,7 +2,6 @@ import os
 import cv2
 import numpy as np
 from tkinter import *
-<<<<<<< HEAD
 from PIL import Image, ImageDraw, ImageGrab
 from keras.models import load_model
 
@@ -11,16 +10,6 @@ model = load_model('model.h5')
 print("Model loaded successfully. Ready to use the app.")
 
 # Create a main window (root)
-=======
-from PIL import ImageGrab
-from keras.models import load_model
-
-# Load model
-model = load_model('model.h5')
-print("Model loaded successfully, go for the app")
-
-# Create a main window (named as root)
->>>>>>> 44d07f8 (Update runs.py)
 root = Tk()
 root.resizable(0, 0)
 root.title("Handwritten Digit Recognition GUI App")
