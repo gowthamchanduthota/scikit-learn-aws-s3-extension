@@ -1,17 +1,11 @@
 import tkinter as tk
-from tkinter import messagebox
 from PIL import ImageGrab, Image
 import numpy as np
-import cv2
 import tensorflow as tf
-from tensorflow.keras.models import load_model
+import cv2
 
-# Load the pre-trained model (MNIST CNN model)
-try:
-    model = load_model('mnist_cnn_model.h5')  # Make sure you have the model file
-except Exception as e:
-    messagebox.showerror("Error", f"Failed to load model: {e}")
-    exit()
+# Load the trained model
+model = tf.keras.models.load_model("model.h5")
 
 class DigitRecognizerApp:
     def __init__(self, root):
@@ -57,11 +51,15 @@ class DigitRecognizerApp:
         )
         self.quit_button.grid(row=0, column=3, padx=10)
 
+        # Store drawing data
+        self.drawing = []
+
     def draw(self, event):
         """Draw on the canvas."""
         x, y = event.x, event.y
         r = 8  # Radius of the drawn circle
         self.canvas.create_oval(x - r, y - r, x + r, y + r, fill="black")
+        self.drawing.append((x, y))
 
 <<<<<<< HEAD
 =======
