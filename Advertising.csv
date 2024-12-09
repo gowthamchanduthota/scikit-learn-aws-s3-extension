@@ -1,4 +1,12 @@
+<<<<<<< HEAD
+<<<<<<< HEAD
 TV,random,newspaper,sales
+=======
+TV,radio,newspaper,sales
+>>>>>>> 0ca67c6 (Pushing local dev changes, added model notebooks & class files)
+=======
+TV,random,newspaper,sales
+>>>>>>> 60fa4732632c76d24e33583051c4348a682a2303
 230.1,37.8,69.2,22.1
 44.5,39.3,45.1,10.4
 17.2,45.9,69.3,9.3
@@ -198,4 +206,12 @@ TV,random,newspaper,sales
 94.2,4.9,8.1,9.7
 177,9.3,6.4,12.8
 283.6,42,66.2,25.5
+<<<<<<< HEAD
+<<<<<<< HEAD
 232.1,8.6,8.7,13.4
+=======
+232.1,8.6,8.7,13.4
+>>>>>>> 0ca67c6 (Pushing local dev changes, added model notebooks & class files)
+=======
+232.1,8.6,8.7,13.4
+>>>>>>> 60fa4732632c76d24e33583051c4348a682a2303

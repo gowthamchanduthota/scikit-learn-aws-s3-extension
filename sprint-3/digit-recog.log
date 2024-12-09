@@ -1,0 +1,13 @@
+<<<<<<< HEAD
+12:01:12] {/Users/gowtham/WorkSpace/myenv/lib/python3.9/site-packages/botocore/credentials.py:1278} INFO - Found credentials in shared credentials file: ~/.aws/credentials
+=======
+[12:01:12] {/Users/gowtham/WorkSpace/myenv/lib/python3.9/site-packages/botocore/credentials.py:1278} INFO - Found credentials in shared credentials file: ~/.aws/credentials
+>>>>>>> 8742665b494ae5af4383a3d3b5a28133c157cf69
+[12:01:18] {/var/folders/58/nvkqn1wd2tq7_ht3yhwmsh580000gn/T/ipykernel_40285/3453806881.py:7} INFO - Model loaded successfully, ready to use the APP.
+[12:01:48] {/var/folders/58/nvkqn1wd2tq7_ht3yhwmsh580000gn/T/ipykernel_40285/3453806881.py:7} INFO - Model loaded successfully, ready to use the APP.
+[12:01:54] {/var/folders/58/nvkqn1wd2tq7_ht3yhwmsh580000gn/T/ipykernel_40285/392183581.py:40} INFO - Before, None
+[12:01:54] {/var/folders/58/nvkqn1wd2tq7_ht3yhwmsh580000gn/T/ipykernel_40285/392183581.py:42} INFO - Mid Validation, 6
+[12:01:55] {/var/folders/58/nvkqn1wd2tq7_ht3yhwmsh580000gn/T/ipykernel_40285/392183581.py:54} INFO - Final Predcition, 6
+[12:02:12] {/var/folders/58/nvkqn1wd2tq7_ht3yhwmsh580000gn/T/ipykernel_40285/392183581.py:40} INFO - Before, None
+[12:02:12] {/var/folders/58/nvkqn1wd2tq7_ht3yhwmsh580000gn/T/ipykernel_40285/392183581.py:42} INFO - Mid Validation, 8
+[12:02:12] {/var/folders/58/nvkqn1wd2tq7_ht3yhwmsh580000gn/T/ipykernel_40285/392183581.py:54} INFO - Final Predcition, 8

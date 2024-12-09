@@ -5,7 +5,7 @@ from PIL import Image
 import tensorflow as tf
 from tensorflow.keras.utils import load_img
 from sklearn.model_selection import train_test_split
-from tensorflow.keras.layers import (Dropout, Input, Dense, BatchNormalization, Flatten, Conv2D, 
+from tensorflow.keras.layers import (Dropout, Input, Dense, BatchNormalization, Flatten, Conv2D,
                                      MaxPooling2D)
 from tensorflow.keras.models import Model
 from s3helper import S3Helper
@@ -20,35 +20,34 @@ class Sprint2Testing(unittest.TestCase):
         self.s3_helper = S3Helper(DATASETS_BUCKET, OUTPUTS_BUCKET)
         filenames = self.s3_helper.list_objects(DATASETS_BUCKET, "UTKFace")
         filenames = [os.path.basename(file) for file in filenames]
-        
         np.random.seed(10)
         np.random.shuffle(filenames)
 
         age_labels, gender_labels = zip(*[(int(fname.split('_')[0]), int(fname.split('_')[1])) for fname in filenames])
         df = pd.DataFrame({'image': filenames, 'age': age_labels, 'gender': gender_labels})
-        
+
         self.gender_dict = {0: "Male", 1: "Female"}
         df = df.astype({'age': 'float32', 'gender': 'int32'})
         self.train, self.test = train_test_split(df, test_size=0.985, random_state=42)
-        
+
         self.batch_size = 5
         self.img_size = (128, 128)
         self.n_channels = 1
 
-        self.x_train = np.array([np.array(self.s3_helper.get_img(f"UTKFace/{file}", greyscale=True).resize(self.img_size, Image.LANCZOS)) 
+        self.x_train = np.array([np.array(self.s3_helper.get_img(f"UTKFace/{file}", greyscale=True).resize(self.img_size, Image.LANCZOS))
                                  for file in self.train['image']]).reshape(-1, 128, 128, 1) / 255.0
-        
+
         self.y_gender = self.train['gender'].values
         self.y_age = self.train['age'].values
-        
+
         self.model = self.build_model()
         self.model = S3ModelWrapper(self.model)
         self.model.compile(loss=['binary_crossentropy', 'mae'], optimizer='adam', metrics=[['accuracy'], ['mae']])
-    
+
     def build_model(self):
         input_size = (128, 128, 1)
         inputs = Input(shape=input_size)
-        
+
         X = Conv2D(64, (3, 3), activation='relu', kernel_initializer='glorot_uniform')(inputs)
         X = BatchNormalization()(X)
         X = MaxPooling2D((3, 3))(X)
@@ -66,7 +65,6 @@ class Sprint2Testing(unittest.TestCase):
         output_age = Dense(1, activation='relu', name='age_output')(Dropout(0.4)(Dense(128, activation='relu')(dense_shared)))
 
         return Model(inputs=inputs, outputs=[output_gender, output_age])
-    
     def test_wrapper_fit(self):
         model_history = self.model.fit(self.x_train, [self.y_gender, self.y_age], batch_size=10, epochs=1, validation_split=0.1)
         self.assertIsNotNone(model_history.history)

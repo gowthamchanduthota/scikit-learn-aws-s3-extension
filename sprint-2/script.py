@@ -108,7 +108,6 @@ class S3Helper:
 
         dataset_len = len(obj_list)
         rand_list = random.sample(obj_list, int(dataset_len * frac))
-        
         if download_files:
             for it in rand_list:
                 try:
