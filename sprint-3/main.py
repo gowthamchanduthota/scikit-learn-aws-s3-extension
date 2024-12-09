@@ -1,23 +1,21 @@
-
-import tkinter as tk
-from PIL import ImageGrab, Image
-import numpy as np
-import tensorflow as tf
-import cv2
-
-# Load the trained model
-model = tf.keras.models.load_model("model.h5")
-
 # Initialize the GUI
 class DigitRecognizerApp:
     def __init__(self, root):
         self.root = root
         self.root.title("Handwritten Digit Recognizer")
 
+        # Add a title label
+        self.title_label = tk.Label(root, text="Draw a digit below and click Recognize", font=("Helvetica", 14))
+        self.title_label.pack()
+
         # Create a canvas for drawing
         self.canvas = tk.Canvas(root, width=300, height=300, bg="white")
         self.canvas.pack()
         self.canvas.bind("<B1-Motion>", self.draw)
+
+        # Add a status label
+        self.status_label = tk.Label(root, text="Status: Waiting for input", font=("Helvetica", 12), fg="green")
+        self.status_label.pack()
 
         # Button to recognize digits
         self.recognize_button = tk.Button(root, text="Recognize", command=self.recognize)
@@ -35,6 +33,7 @@ class DigitRecognizerApp:
 
     def clear_canvas(self):
         self.canvas.delete("all")
+        self.status_label.config(text="Status: Canvas cleared", fg="blue")
 
     def recognize(self):
         # Capture canvas content as an image
@@ -48,6 +47,9 @@ class DigitRecognizerApp:
         image_np = np.array(image)
         _, thresh = cv2.threshold(image_np, 128, 255, cv2.THRESH_BINARY_INV)
         contours, _ = cv2.findContours(thresh, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+
+        if contours:
+            self.status_label.config(text="Status: Recognizing digit...", fg="orange")
 
         # Recognize each digit in bounding boxes
         for contour in contours:
@@ -63,7 +65,10 @@ class DigitRecognizerApp:
             self.canvas.create_rectangle(x, y, x + w, y + h, outline="red")
             self.canvas.create_text(x + w // 2, y - 10, text=str(digit), fill="blue")
 
+        self.status_label.config(text="Status: Recognition complete", fg="green")
+
 # Initialize the Tkinter root and app
 root = tk.Tk()
 app = DigitRecognizerApp(root)
 root.mainloop()
+
