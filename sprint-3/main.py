@@ -15,6 +15,7 @@ except Exception as e:
 
 class DigitRecognizerApp:
     def __init__(self, root):
+        """Initialize the application."""
         self.root = root
         self.root.title("Handwritten Digit Recognizer")
 
