@@ -68,6 +68,7 @@ class DigitRecognizerApp:
     def clear_canvas(self):
         """Clear the canvas."""
         self.canvas.delete("all")
+        self.status_label.config(text="Status: Canvas cleared", fg="blue")
 
     def reset(self):
         """Reset the canvas and any predictions."""
