@@ -1,4 +1,14 @@
-# Initialize the GUI
+import tkinter as tk
+from tkinter import messagebox
+from PIL import ImageGrab, Image
+import numpy as np
+import cv2
+import tensorflow as tf
+from tensorflow.keras.models import load_model
+
+# Load the pre-trained model (MNIST CNN model)
+model = load_model('mnist_cnn_model.h5')  # Make sure you have the model file
+
 class DigitRecognizerApp:
     def __init__(self, root):
         self.root = root
@@ -45,10 +55,12 @@ class DigitRecognizerApp:
         y1 = y + self.canvas.winfo_height()
         image = ImageGrab.grab().crop((x, y, x1, y1)).convert("L")
 
-        # Process the image for bounding box detection
-        image_np = np.array(image)
-        _, thresh = cv2.threshold(image_np, 128, 255, cv2.THRESH_BINARY_INV)
-        contours, _ = cv2.findContours(thresh, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+        # Preprocess the image
+        image = image.resize((28, 28), Image.ANTIALIAS)  # Resize to 28x28 for the model
+        image = np.array(image)
+        image = cv2.bitwise_not(image)  # Invert colors to match MNIST (white digits on black background)
+        image = image / 255.0  # Normalize to range [0, 1]
+        image = image.reshape(1, 28, 28, 1)  # Reshape for the model input
 
             # Model prediction
         prediction = model.predict(image)
