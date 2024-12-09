@@ -1,8 +1,5 @@
-#import libraries
 import os
-import PIL
 import cv2
-import glob
 import numpy as np
 from tkinter import *
 
@@ -21,12 +18,7 @@ root = Tk()
 root.resizable(0, 0)
 root.title("Handwritten Digit Recognition GUI App")
 
-#create a main window first (named as root) •
-root = Tk( )
-root. resizable (0, 0)
-root. title ("Handwritten Digit Recognition GUI App")
-
-#Initialize few variables
+# Initialize variables
 lastx, lasty = None, None
 image_number = 0
 
