@@ -52,8 +52,10 @@ class DigitRecognizerApp:
         self.quit_button.grid(row=0, column=3, padx=10)
 
         # Button to quit the app
-        self.quit_button = tk.Button(root, text="Quit", command=root.quit)
-        self.quit_button.pack()
+        self.quit_button = tk.Button(
+            self.button_frame, text="Quit", command=root.quit
+        )
+        self.quit_button.grid(row=0, column=3, padx=10)
 
     def draw(self, event):
         """Draw on the canvas."""
