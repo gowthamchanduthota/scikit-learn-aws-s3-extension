@@ -63,17 +63,6 @@ class DigitRecognizerApp:
         r = 8  # Radius of the drawn circle
         self.canvas.create_oval(x - r, y - r, x + r, y + r, fill="black")
 
-<<<<<<< HEAD
-=======
-    def clear_canvas(self):
-        """Clear the canvas."""
-        self.canvas.delete("all")
-
-    def reset(self):
-        """Reset the canvas and any predictions."""
-        self.clear_canvas()
-
->>>>>>> 63b2e1f (Update main.py)
     def recognize(self):
         """Recognize the digit drawn on the canvas."""
         try:
@@ -92,7 +81,6 @@ class DigitRecognizerApp:
             image = image.reshape(1, 28, 28, 1)  # Reshape for model input
 
             # Model prediction
-<<<<<<< HEAD
         prediction = model.predict(image)
         digit = np.argmax(prediction)
 
@@ -103,16 +91,6 @@ class DigitRecognizerApp:
         #     messagebox.showerror("Error", f"An error occurred during recognition: {e}")
 
         self.status_label.config(text="Status: Recognition complete", fg="green")
-=======
-            prediction = model.predict(image)
-            digit = np.argmax(prediction)
-
-            # Display the result
-            messagebox.showinfo("Recognition Result", f"Predicted Digit: {digit}")
-
-        except Exception as e:
-            messagebox.showerror("Error", f"An error occurred during recognition: {e}")
->>>>>>> 63b2e1f (Update main.py)
 
 # Initialize the Tkinter root and app
 root = tk.Tk()
