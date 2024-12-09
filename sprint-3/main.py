@@ -57,14 +57,14 @@ class DigitRecognizerApp:
         contours, _ = cv2.findContours(thresh, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 
             # Model prediction
-            prediction = model.predict(image)
-            digit = np.argmax(prediction)
+        prediction = model.predict(image)
+        digit = np.argmax(prediction)
 
-                # Display the result
-            messagebox.showinfo("Recognition Result", f"Predicted Digit: {digit}")
+            # Display the result
+        messagebox.showinfo("Recognition Result", f"Predicted Digit: {digit}")
 
-        except Exception as e:
-            messagebox.showerror("Error", f"An error occurred during recognition: {e}")
+        # except Exception as e:
+        #     messagebox.showerror("Error", f"An error occurred during recognition: {e}")
 
         self.status_label.config(text="Status: Recognition complete", fg="green")
 
