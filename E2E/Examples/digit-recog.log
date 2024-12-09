@@ -1,0 +1,144 @@
+<<<<<<< HEAD
+12:01:12] {/Users/gowtham/WorkSpace/myenv/lib/python3.9/site-packages/botocore/credentials.py:1278} INFO - Found credentials in shared credentials file: ~/.aws/credentials
+=======
+[12:01:12] {/Users/gowtham/WorkSpace/myenv/lib/python3.9/site-packages/botocore/credentials.py:1278} INFO - Found credentials in shared credentials file: ~/.aws/credentials
+>>>>>>> 4c0f327 (Added E2E module merging complete changes and modules)
+[12:01:18] {/var/folders/58/nvkqn1wd2tq7_ht3yhwmsh580000gn/T/ipykernel_40285/3453806881.py:7} INFO - Model loaded successfully, ready to use the APP.
+[12:01:48] {/var/folders/58/nvkqn1wd2tq7_ht3yhwmsh580000gn/T/ipykernel_40285/3453806881.py:7} INFO - Model loaded successfully, ready to use the APP.
+[12:01:54] {/var/folders/58/nvkqn1wd2tq7_ht3yhwmsh580000gn/T/ipykernel_40285/392183581.py:40} INFO - Before, None
+[12:01:54] {/var/folders/58/nvkqn1wd2tq7_ht3yhwmsh580000gn/T/ipykernel_40285/392183581.py:42} INFO - Mid Validation, 6
+[12:01:55] {/var/folders/58/nvkqn1wd2tq7_ht3yhwmsh580000gn/T/ipykernel_40285/392183581.py:54} INFO - Final Predcition, 6
+[12:02:12] {/var/folders/58/nvkqn1wd2tq7_ht3yhwmsh580000gn/T/ipykernel_40285/392183581.py:40} INFO - Before, None
+[12:02:12] {/var/folders/58/nvkqn1wd2tq7_ht3yhwmsh580000gn/T/ipykernel_40285/392183581.py:42} INFO - Mid Validation, 8
+[12:02:12] {/var/folders/58/nvkqn1wd2tq7_ht3yhwmsh580000gn/T/ipykernel_40285/392183581.py:54} INFO - Final Predcition, 8
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 01508cc (Added unit test cases)
+[13:01:43] {/var/folders/58/nvkqn1wd2tq7_ht3yhwmsh580000gn/T/ipykernel_40285/3453806881.py:7} INFO - Model loaded successfully, ready to use the APP.
+[13:21:13] {/var/folders/58/nvkqn1wd2tq7_ht3yhwmsh580000gn/T/ipykernel_40285/3453806881.py:7} INFO - Model loaded successfully, ready to use the APP.
+[13:22:05] {/var/folders/58/nvkqn1wd2tq7_ht3yhwmsh580000gn/T/ipykernel_40285/392183581.py:40} INFO - Before, None
+[13:22:05] {/var/folders/58/nvkqn1wd2tq7_ht3yhwmsh580000gn/T/ipykernel_40285/392183581.py:42} INFO - Mid Validation, 3
+[13:22:06] {/var/folders/58/nvkqn1wd2tq7_ht3yhwmsh580000gn/T/ipykernel_40285/392183581.py:54} INFO - Final Predcition, 3
+[13:22:22] {/var/folders/58/nvkqn1wd2tq7_ht3yhwmsh580000gn/T/ipykernel_40285/392183581.py:40} INFO - Before, None
+[13:22:22] {/var/folders/58/nvkqn1wd2tq7_ht3yhwmsh580000gn/T/ipykernel_40285/392183581.py:42} INFO - Mid Validation, 7
+[13:22:22] {/var/folders/58/nvkqn1wd2tq7_ht3yhwmsh580000gn/T/ipykernel_40285/392183581.py:54} INFO - Final Predcition, 7
+[13:26:56] {/var/folders/58/nvkqn1wd2tq7_ht3yhwmsh580000gn/T/ipykernel_40285/3453806881.py:7} INFO - Model loaded successfully, ready to use the APP.
+[13:27:14] {/var/folders/58/nvkqn1wd2tq7_ht3yhwmsh580000gn/T/ipykernel_40285/3453806881.py:7} INFO - Model loaded successfully, ready to use the APP.
+[13:27:20] {/var/folders/58/nvkqn1wd2tq7_ht3yhwmsh580000gn/T/ipykernel_40285/392183581.py:40} INFO - Before, None
+[13:27:20] {/var/folders/58/nvkqn1wd2tq7_ht3yhwmsh580000gn/T/ipykernel_40285/392183581.py:42} INFO - Mid Validation, 1
+[13:27:20] {/var/folders/58/nvkqn1wd2tq7_ht3yhwmsh580000gn/T/ipykernel_40285/392183581.py:54} INFO - Final Predcition, 1
+[13:27:53] {/var/folders/58/nvkqn1wd2tq7_ht3yhwmsh580000gn/T/ipykernel_40285/3453806881.py:7} INFO - Model loaded successfully, ready to use the APP.
+[13:28:24] {/var/folders/58/nvkqn1wd2tq7_ht3yhwmsh580000gn/T/ipykernel_40285/3453806881.py:7} INFO - Model loaded successfully, ready to use the APP.
+[13:28:29] {/var/folders/58/nvkqn1wd2tq7_ht3yhwmsh580000gn/T/ipykernel_40285/392183581.py:40} INFO - Before, None
+[13:28:29] {/var/folders/58/nvkqn1wd2tq7_ht3yhwmsh580000gn/T/ipykernel_40285/392183581.py:42} INFO - Mid Validation, 1
+[13:28:29] {/var/folders/58/nvkqn1wd2tq7_ht3yhwmsh580000gn/T/ipykernel_40285/392183581.py:54} INFO - Final Predcition, 1
+[13:29:12] {/var/folders/58/nvkqn1wd2tq7_ht3yhwmsh580000gn/T/ipykernel_40285/3453806881.py:7} INFO - Model loaded successfully, ready to use the APP.
+[13:29:27] {/Users/gowtham/WorkSpace/myenv/lib/python3.9/site-packages/tensorflow/python/eager/polymorphic_function/polymorphic_function.py:156} WARNING - 5 out of the last 7 calls to <function Model.make_predict_function.<locals>.predict_function at 0x172141f70> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has reduce_retracing=True option that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/guide/function#controlling_retracing and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+[13:29:27] {/var/folders/58/nvkqn1wd2tq7_ht3yhwmsh580000gn/T/ipykernel_40285/392183581.py:40} INFO - Before, None
+[13:29:27] {/var/folders/58/nvkqn1wd2tq7_ht3yhwmsh580000gn/T/ipykernel_40285/392183581.py:42} INFO - Mid Validation, 1
+[13:29:28] {/var/folders/58/nvkqn1wd2tq7_ht3yhwmsh580000gn/T/ipykernel_40285/392183581.py:54} INFO - Final Predcition, 1
+[13:29:50] {/var/folders/58/nvkqn1wd2tq7_ht3yhwmsh580000gn/T/ipykernel_40285/3453806881.py:7} INFO - Model loaded successfully, ready to use the APP.
+[13:29:58] {/Users/gowtham/WorkSpace/myenv/lib/python3.9/site-packages/tensorflow/python/eager/polymorphic_function/polymorphic_function.py:156} WARNING - 6 out of the last 8 calls to <function Model.make_predict_function.<locals>.predict_function at 0x314a93ee0> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has reduce_retracing=True option that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/guide/function#controlling_retracing and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+[13:29:58] {/var/folders/58/nvkqn1wd2tq7_ht3yhwmsh580000gn/T/ipykernel_40285/392183581.py:40} INFO - Before, None
+[13:29:58] {/var/folders/58/nvkqn1wd2tq7_ht3yhwmsh580000gn/T/ipykernel_40285/392183581.py:42} INFO - Mid Validation, 3
+[13:29:58] {/var/folders/58/nvkqn1wd2tq7_ht3yhwmsh580000gn/T/ipykernel_40285/392183581.py:54} INFO - Final Predcition, 3
+[13:30:13] {/var/folders/58/nvkqn1wd2tq7_ht3yhwmsh580000gn/T/ipykernel_40285/392183581.py:40} INFO - Before, None
+[13:30:13] {/var/folders/58/nvkqn1wd2tq7_ht3yhwmsh580000gn/T/ipykernel_40285/392183581.py:42} INFO - Mid Validation, 6
+[13:30:14] {/var/folders/58/nvkqn1wd2tq7_ht3yhwmsh580000gn/T/ipykernel_40285/392183581.py:54} INFO - Final Predcition, 6
+[13:30:24] {/var/folders/58/nvkqn1wd2tq7_ht3yhwmsh580000gn/T/ipykernel_40285/392183581.py:40} INFO - Before, None
+[13:30:24] {/var/folders/58/nvkqn1wd2tq7_ht3yhwmsh580000gn/T/ipykernel_40285/392183581.py:42} INFO - Mid Validation, 2
+[13:30:25] {/var/folders/58/nvkqn1wd2tq7_ht3yhwmsh580000gn/T/ipykernel_40285/392183581.py:54} INFO - Final Predcition, 2
+[13:45:19] {/var/folders/58/nvkqn1wd2tq7_ht3yhwmsh580000gn/T/ipykernel_40285/3453806881.py:7} INFO - Model loaded successfully, ready to use the APP.
+[13:46:04] {/var/folders/58/nvkqn1wd2tq7_ht3yhwmsh580000gn/T/ipykernel_40285/392183581.py:40} INFO - Before, None
+[13:46:04] {/var/folders/58/nvkqn1wd2tq7_ht3yhwmsh580000gn/T/ipykernel_40285/392183581.py:42} INFO - Mid Validation, 1
+[13:46:05] {/var/folders/58/nvkqn1wd2tq7_ht3yhwmsh580000gn/T/ipykernel_40285/392183581.py:54} INFO - Final Predcition, 1
+[13:46:19] {/var/folders/58/nvkqn1wd2tq7_ht3yhwmsh580000gn/T/ipykernel_40285/392183581.py:40} INFO - Before, None
+[13:46:19] {/var/folders/58/nvkqn1wd2tq7_ht3yhwmsh580000gn/T/ipykernel_40285/392183581.py:42} INFO - Mid Validation, 3
+[13:46:20] {/var/folders/58/nvkqn1wd2tq7_ht3yhwmsh580000gn/T/ipykernel_40285/392183581.py:54} INFO - Final Predcition, 3
+[13:46:48] {/var/folders/58/nvkqn1wd2tq7_ht3yhwmsh580000gn/T/ipykernel_40285/392183581.py:40} INFO - Before, None
+[13:46:48] {/var/folders/58/nvkqn1wd2tq7_ht3yhwmsh580000gn/T/ipykernel_40285/392183581.py:42} INFO - Mid Validation, 4
+[13:46:48] {/var/folders/58/nvkqn1wd2tq7_ht3yhwmsh580000gn/T/ipykernel_40285/392183581.py:54} INFO - Final Predcition, 4
+[14:29:30] {/var/folders/58/nvkqn1wd2tq7_ht3yhwmsh580000gn/T/ipykernel_40285/3453806881.py:7} INFO - Model loaded successfully, ready to use the APP.
+[14:29:58] {/var/folders/58/nvkqn1wd2tq7_ht3yhwmsh580000gn/T/ipykernel_40285/392183581.py:40} INFO - Before, None
+[14:29:58] {/var/folders/58/nvkqn1wd2tq7_ht3yhwmsh580000gn/T/ipykernel_40285/392183581.py:42} INFO - Mid Validation, 3
+[14:29:58] {/var/folders/58/nvkqn1wd2tq7_ht3yhwmsh580000gn/T/ipykernel_40285/392183581.py:54} INFO - Final Predcition, 3
+[14:32:07] {/var/folders/58/nvkqn1wd2tq7_ht3yhwmsh580000gn/T/ipykernel_40285/392183581.py:40} INFO - Before, None
+[14:32:07] {/var/folders/58/nvkqn1wd2tq7_ht3yhwmsh580000gn/T/ipykernel_40285/392183581.py:42} INFO - Mid Validation, 4
+[14:32:08] {/var/folders/58/nvkqn1wd2tq7_ht3yhwmsh580000gn/T/ipykernel_40285/392183581.py:54} INFO - Final Predcition, 4
+[14:34:19] {/var/folders/58/nvkqn1wd2tq7_ht3yhwmsh580000gn/T/ipykernel_40285/392183581.py:40} INFO - Before, None
+[14:34:19] {/var/folders/58/nvkqn1wd2tq7_ht3yhwmsh580000gn/T/ipykernel_40285/392183581.py:42} INFO - Mid Validation, 4
+[14:34:19] {/var/folders/58/nvkqn1wd2tq7_ht3yhwmsh580000gn/T/ipykernel_40285/392183581.py:54} INFO - Final Predcition, 4
+[14:34:58] {/var/folders/58/nvkqn1wd2tq7_ht3yhwmsh580000gn/T/ipykernel_40285/392183581.py:40} INFO - Before, None
+[14:34:58] {/var/folders/58/nvkqn1wd2tq7_ht3yhwmsh580000gn/T/ipykernel_40285/392183581.py:42} INFO - Mid Validation, 6
+[14:34:58] {/var/folders/58/nvkqn1wd2tq7_ht3yhwmsh580000gn/T/ipykernel_40285/392183581.py:54} INFO - Final Predcition, 6
+[14:35:08] {/var/folders/58/nvkqn1wd2tq7_ht3yhwmsh580000gn/T/ipykernel_40285/392183581.py:40} INFO - Before, None
+[14:35:08] {/var/folders/58/nvkqn1wd2tq7_ht3yhwmsh580000gn/T/ipykernel_40285/392183581.py:42} INFO - Mid Validation, 2
+[14:35:08] {/var/folders/58/nvkqn1wd2tq7_ht3yhwmsh580000gn/T/ipykernel_40285/392183581.py:54} INFO - Final Predcition, 2
+[14:36:23] {/var/folders/58/nvkqn1wd2tq7_ht3yhwmsh580000gn/T/ipykernel_40285/392183581.py:40} INFO - Before, None
+[14:36:23] {/var/folders/58/nvkqn1wd2tq7_ht3yhwmsh580000gn/T/ipykernel_40285/392183581.py:42} INFO - Mid Validation, 0
+[14:36:23] {/var/folders/58/nvkqn1wd2tq7_ht3yhwmsh580000gn/T/ipykernel_40285/392183581.py:54} INFO - Final Predcition, 0
+[19:38:15] {/Users/gowtham/WorkSpace/myenv/lib/python3.9/site-packages/botocore/credentials.py:1278} INFO - Found credentials in shared credentials file: ~/.aws/credentials
+[19:38:22] {/Users/gowtham/WorkSpace/UNT/SE/scikit-learn-aws-s3-extension/E2E/Examples/guiscript.py:27} INFO - Model loaded successfully, ready to use the APP.
+[19:38:34] {/Users/gowtham/WorkSpace/UNT/SE/scikit-learn-aws-s3-extension/E2E/Examples/guiscript.py:101} INFO - Before, None
+[19:38:34] {/Users/gowtham/WorkSpace/UNT/SE/scikit-learn-aws-s3-extension/E2E/Examples/guiscript.py:103} INFO - Mid Validation, 7
+[19:38:35] {/Users/gowtham/WorkSpace/UNT/SE/scikit-learn-aws-s3-extension/E2E/Examples/guiscript.py:115} INFO - Final Predcition, 7
+[19:38:51] {/Users/gowtham/WorkSpace/UNT/SE/scikit-learn-aws-s3-extension/E2E/Examples/guiscript.py:101} INFO - Before, None
+[19:38:51] {/Users/gowtham/WorkSpace/UNT/SE/scikit-learn-aws-s3-extension/E2E/Examples/guiscript.py:103} INFO - Mid Validation, 2
+[19:38:52] {/Users/gowtham/WorkSpace/UNT/SE/scikit-learn-aws-s3-extension/E2E/Examples/guiscript.py:115} INFO - Final Predcition, 2
+[19:44:52] {/Users/gowtham/WorkSpace/myenv/lib/python3.9/site-packages/botocore/credentials.py:1278} INFO - Found credentials in shared credentials file: ~/.aws/credentials
+[19:45:00] {/Users/gowtham/WorkSpace/UNT/SE/scikit-learn-aws-s3-extension/E2E/Examples/guiscript.py:27} INFO - Model loaded successfully, ready to use the APP.
+[19:45:16] {/Users/gowtham/WorkSpace/UNT/SE/scikit-learn-aws-s3-extension/E2E/Examples/guiscript.py:101} INFO - Before, None
+[19:45:16] {/Users/gowtham/WorkSpace/UNT/SE/scikit-learn-aws-s3-extension/E2E/Examples/guiscript.py:103} INFO - Mid Validation, 2
+[19:45:16] {/Users/gowtham/WorkSpace/UNT/SE/scikit-learn-aws-s3-extension/E2E/Examples/guiscript.py:115} INFO - Final Predcition, 2
+[19:45:41] {/Users/gowtham/WorkSpace/UNT/SE/scikit-learn-aws-s3-extension/E2E/Examples/guiscript.py:101} INFO - Before, None
+[19:45:41] {/Users/gowtham/WorkSpace/UNT/SE/scikit-learn-aws-s3-extension/E2E/Examples/guiscript.py:103} INFO - Mid Validation, 4
+[19:45:41] {/Users/gowtham/WorkSpace/UNT/SE/scikit-learn-aws-s3-extension/E2E/Examples/guiscript.py:115} INFO - Final Predcition, 4
+[19:46:17] {/Users/gowtham/WorkSpace/myenv/lib/python3.9/site-packages/botocore/credentials.py:1278} INFO - Found credentials in shared credentials file: ~/.aws/credentials
+[19:46:25] {/Users/gowtham/WorkSpace/UNT/SE/scikit-learn-aws-s3-extension/E2E/Examples/guiscript.py:27} INFO - Model loaded successfully, ready to use the APP.
+[19:46:40] {/Users/gowtham/WorkSpace/UNT/SE/scikit-learn-aws-s3-extension/E2E/Examples/guiscript.py:101} INFO - Before, None
+[19:46:40] {/Users/gowtham/WorkSpace/UNT/SE/scikit-learn-aws-s3-extension/E2E/Examples/guiscript.py:103} INFO - Mid Validation, 3
+[19:46:41] {/Users/gowtham/WorkSpace/UNT/SE/scikit-learn-aws-s3-extension/E2E/Examples/guiscript.py:115} INFO - Final Predcition, 3
+[19:46:51] {/Users/gowtham/WorkSpace/UNT/SE/scikit-learn-aws-s3-extension/E2E/Examples/guiscript.py:101} INFO - Before, None
+[19:46:51] {/Users/gowtham/WorkSpace/UNT/SE/scikit-learn-aws-s3-extension/E2E/Examples/guiscript.py:103} INFO - Mid Validation, 2
+[19:46:52] {/Users/gowtham/WorkSpace/UNT/SE/scikit-learn-aws-s3-extension/E2E/Examples/guiscript.py:115} INFO - Final Predcition, 2
+[19:47:54] {/Users/gowtham/WorkSpace/myenv/lib/python3.9/site-packages/botocore/credentials.py:1278} INFO - Found credentials in shared credentials file: ~/.aws/credentials
+[19:48:01] {/Users/gowtham/WorkSpace/UNT/SE/scikit-learn-aws-s3-extension/E2E/Examples/guiscript.py:27} INFO - Model loaded successfully, ready to use the APP.
+[19:48:09] {/Users/gowtham/WorkSpace/UNT/SE/scikit-learn-aws-s3-extension/E2E/Examples/guiscript.py:101} INFO - Before, None
+[19:48:09] {/Users/gowtham/WorkSpace/UNT/SE/scikit-learn-aws-s3-extension/E2E/Examples/guiscript.py:103} INFO - Mid Validation, 2
+[19:48:09] {/Users/gowtham/WorkSpace/UNT/SE/scikit-learn-aws-s3-extension/E2E/Examples/guiscript.py:115} INFO - Final Predcition, 2
+[19:48:18] {/Users/gowtham/WorkSpace/UNT/SE/scikit-learn-aws-s3-extension/E2E/Examples/guiscript.py:101} INFO - Before, None
+[19:48:18] {/Users/gowtham/WorkSpace/UNT/SE/scikit-learn-aws-s3-extension/E2E/Examples/guiscript.py:103} INFO - Mid Validation, 3
+[19:48:19] {/Users/gowtham/WorkSpace/UNT/SE/scikit-learn-aws-s3-extension/E2E/Examples/guiscript.py:115} INFO - Final Predcition, 3
+[19:48:50] {/Users/gowtham/WorkSpace/myenv/lib/python3.9/site-packages/botocore/credentials.py:1278} INFO - Found credentials in shared credentials file: ~/.aws/credentials
+[19:48:57] {/Users/gowtham/WorkSpace/UNT/SE/scikit-learn-aws-s3-extension/E2E/Examples/guiscript.py:27} INFO - Model loaded successfully, ready to use the APP.
+[19:49:03] {/Users/gowtham/WorkSpace/UNT/SE/scikit-learn-aws-s3-extension/E2E/Examples/guiscript.py:101} INFO - Before, None
+[19:49:03] {/Users/gowtham/WorkSpace/UNT/SE/scikit-learn-aws-s3-extension/E2E/Examples/guiscript.py:103} INFO - Mid Validation, 4
+[19:49:03] {/Users/gowtham/WorkSpace/UNT/SE/scikit-learn-aws-s3-extension/E2E/Examples/guiscript.py:115} INFO - Final Predcition, 4
+[19:49:18] {/Users/gowtham/WorkSpace/myenv/lib/python3.9/site-packages/botocore/credentials.py:1278} INFO - Found credentials in shared credentials file: ~/.aws/credentials
+[19:49:22] {/Users/gowtham/WorkSpace/UNT/SE/scikit-learn-aws-s3-extension/E2E/Examples/guiscript.py:27} INFO - Model loaded successfully, ready to use the APP.
+[19:49:27] {/Users/gowtham/WorkSpace/UNT/SE/scikit-learn-aws-s3-extension/E2E/Examples/guiscript.py:101} INFO - Before, None
+[19:49:27] {/Users/gowtham/WorkSpace/UNT/SE/scikit-learn-aws-s3-extension/E2E/Examples/guiscript.py:103} INFO - Mid Validation, 3
+[19:49:27] {/Users/gowtham/WorkSpace/UNT/SE/scikit-learn-aws-s3-extension/E2E/Examples/guiscript.py:115} INFO - Final Predcition, 3
+[19:49:38] {/Users/gowtham/WorkSpace/UNT/SE/scikit-learn-aws-s3-extension/E2E/Examples/guiscript.py:101} INFO - Before, None
+[19:49:38] {/Users/gowtham/WorkSpace/UNT/SE/scikit-learn-aws-s3-extension/E2E/Examples/guiscript.py:103} INFO - Mid Validation, 2
+[19:49:39] {/Users/gowtham/WorkSpace/UNT/SE/scikit-learn-aws-s3-extension/E2E/Examples/guiscript.py:115} INFO - Final Predcition, 2
+[19:49:47] {/Users/gowtham/WorkSpace/UNT/SE/scikit-learn-aws-s3-extension/E2E/Examples/guiscript.py:101} INFO - Before, None
+[19:49:47] {/Users/gowtham/WorkSpace/UNT/SE/scikit-learn-aws-s3-extension/E2E/Examples/guiscript.py:103} INFO - Mid Validation, 4
+[19:49:47] {/Users/gowtham/WorkSpace/UNT/SE/scikit-learn-aws-s3-extension/E2E/Examples/guiscript.py:115} INFO - Final Predcition, 4
+[19:50:10] {/Users/gowtham/WorkSpace/myenv/lib/python3.9/site-packages/botocore/credentials.py:1278} INFO - Found credentials in shared credentials file: ~/.aws/credentials
+[19:50:18] {/Users/gowtham/WorkSpace/UNT/SE/scikit-learn-aws-s3-extension/E2E/Examples/guiscript.py:27} INFO - Model loaded successfully, ready to use the APP.
+[19:50:24] {/Users/gowtham/WorkSpace/UNT/SE/scikit-learn-aws-s3-extension/E2E/Examples/guiscript.py:101} INFO - Before, None
+[19:50:24] {/Users/gowtham/WorkSpace/UNT/SE/scikit-learn-aws-s3-extension/E2E/Examples/guiscript.py:103} INFO - Mid Validation, 3
+[19:50:24] {/Users/gowtham/WorkSpace/UNT/SE/scikit-learn-aws-s3-extension/E2E/Examples/guiscript.py:115} INFO - Final Predcition, 3
+[19:50:36] {/Users/gowtham/WorkSpace/UNT/SE/scikit-learn-aws-s3-extension/E2E/Examples/guiscript.py:101} INFO - Before, None
+[19:50:36] {/Users/gowtham/WorkSpace/UNT/SE/scikit-learn-aws-s3-extension/E2E/Examples/guiscript.py:103} INFO - Mid Validation, 4
+[19:50:37] {/Users/gowtham/WorkSpace/UNT/SE/scikit-learn-aws-s3-extension/E2E/Examples/guiscript.py:115} INFO - Final Predcition, 4
+[19:51:00] {/Users/gowtham/WorkSpace/UNT/SE/scikit-learn-aws-s3-extension/E2E/Examples/guiscript.py:101} INFO - Before, None
+[19:51:00] {/Users/gowtham/WorkSpace/UNT/SE/scikit-learn-aws-s3-extension/E2E/Examples/guiscript.py:103} INFO - Mid Validation, 8
+[19:51:01] {/Users/gowtham/WorkSpace/UNT/SE/scikit-learn-aws-s3-extension/E2E/Examples/guiscript.py:115} INFO - Final Predcition, 8
+<<<<<<< HEAD
+=======
+>>>>>>> 4c0f327 (Added E2E module merging complete changes and modules)
+=======
+>>>>>>> 01508cc (Added unit test cases)

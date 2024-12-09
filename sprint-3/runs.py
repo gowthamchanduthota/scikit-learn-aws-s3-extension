@@ -13,7 +13,6 @@ from keras.models import load_model
 model = load_model('model.h5')
 print("Model loaded successfully, go for the app")
 
-
 # Create a main window (named as root)
 root = Tk()
 root.resizable(0, 0)
