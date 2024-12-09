@@ -96,8 +96,8 @@ class DigitRecognizerApp:
             prediction = model.predict(image)
             digit = np.argmax(prediction)
 
-            # Display the result
-            messagebox.showinfo("Recognition Result", f"Predicted Digit: {digit}")
+                # Display the result
+                messagebox.showinfo("Recognition Result", f"Predicted Digit: {digit}")
 
         except Exception as e:
             messagebox.showerror("Error", f"An error occurred during recognition: {e}")
