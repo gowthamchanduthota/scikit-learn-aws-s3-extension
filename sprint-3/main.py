@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> 872fc6e (Update main.py)
 import tkinter as tk
 from PIL import ImageGrab, Image
 import numpy as np
@@ -7,6 +12,11 @@ import cv2
 # Load the trained model
 model = tf.keras.models.load_model("model.h5")
 
+<<<<<<< HEAD
+=======
+>>>>>>> 0824e24 (Update main.py)
+# Initialize the GUI
+>>>>>>> 872fc6e (Update main.py)
 class DigitRecognizerApp:
     def __init__(self, root):
         """Initialize the application."""
@@ -28,16 +38,29 @@ class DigitRecognizerApp:
         self.clear_button = tk.Button(button_frame, text="Clear", command=self.clear_canvas, width=10)
         self.clear_button.pack(side="right", padx=5)
 
+        # Store drawing data
+        self.drawing = []
+
     def draw(self, event):
         """Draw circles on the canvas where the mouse moves."""
         r = 8  # Radius of the drawing brush
         x, y = event.x, event.y
+<<<<<<< HEAD
         self.canvas.create_oval(x - r, y - r, x + r, y + r, fill="black", outline="")
+=======
+        r = 8
+        self.canvas.create_oval(x - r, y - r, x + r, y + r, fill="black")
+        self.drawing.append((x, y))
+>>>>>>> 872fc6e (Update main.py)
 
     def clear_canvas(self):
         """Clear the canvas."""
         self.canvas.delete("all")
+<<<<<<< HEAD
         self.status_label.config(text="Status: Canvas cleared", fg="blue")
+=======
+        self.drawing.clear()
+>>>>>>> 0824e24 (Update main.py)
 
     def recognize(self):
         """Recognize the digit(s) drawn on the canvas."""
@@ -46,8 +69,14 @@ class DigitRecognizerApp:
         x1, y1 = x + self.canvas.winfo_width(), y + self.canvas.winfo_height()
         image = ImageGrab.grab(bbox=(x, y, x1, y1)).convert("L")
 
+<<<<<<< HEAD
         # Convert the image to a NumPy array for processing
+=======
+        # Convert to numpy array and process the image
+>>>>>>> 872fc6e (Update main.py)
         image_np = np.array(image)
+
+        # Preprocess the image
         _, thresh = cv2.threshold(image_np, 128, 255, cv2.THRESH_BINARY_INV)
         contours, _ = cv2.findContours(thresh, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 
@@ -61,8 +90,13 @@ class DigitRecognizerApp:
             digit_image = digit_image / 255.0
             digit_image = digit_image.reshape(1, 28, 28, 1)
 
+<<<<<<< HEAD
             # Predict the digit
             prediction = model.predict(digit_image, verbose=0)
+=======
+            # Make prediction
+            prediction = model.predict(digit_image)
+>>>>>>> 872fc6e (Update main.py)
             digit = np.argmax(prediction)
 
             # Draw bounding box and label
