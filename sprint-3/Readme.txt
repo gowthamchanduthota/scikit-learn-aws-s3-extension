@@ -1,0 +1,1 @@
+This project enables digit recognition using a graphical user interface (GUI), allowing users to draw digits that are then recognized and stored in an Amazon S3 bucket. It combines real-time input processing with cloud storage for easy access and management of recognized digits.
