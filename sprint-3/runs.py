@@ -2,7 +2,8 @@ import os
 import cv2
 import numpy as np
 from tkinter import *
-from PIL import ImageGrab
+
+from PIL import Image, ImageDraw, ImageGrab
 from keras.models import load_model
 
 # Load model
