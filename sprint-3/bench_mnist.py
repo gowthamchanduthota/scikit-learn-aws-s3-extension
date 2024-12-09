@@ -4,6 +4,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 """
 =======================
 MNIST dataset benchmark
@@ -39,12 +40,15 @@ from sklearn.datasets import fetch_openml, get_data_home
 >>>>>>> b104d61 (Create bench_mnist.py)
 =======
 >>>>>>> 3c3b948 (Create bench_mnist.py)
+=======
+>>>>>>> f7194ee (Create bench_mnist.py)
 import argparse
 import os
 from time import time
 from joblib import Memory
 import numpy as np
 from sklearn.datasets import fetch_openml
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -140,6 +144,8 @@ from sklearn.datasets import fetch_openml, get_data_home
 >>>>>>> 23c541b (Create bench_mnist.py)
 >>>>>>> 01d1340 (Create bench_mnist.py)
 >>>>>>> 3c3b948 (Create bench_mnist.py)
+=======
+>>>>>>> f7194ee (Create bench_mnist.py)
 from sklearn.dummy import DummyClassifier
 from sklearn.ensemble import ExtraTreesClassifier, RandomForestClassifier
 from sklearn.kernel_approximation import Nystroem, RBFSampler
@@ -156,6 +162,7 @@ from sklearn.utils import check_array
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 # Cache data for faster access
 CACHE_DIR = os.path.join(get_data_home(), "mnist_benchmark_data")
@@ -170,11 +177,14 @@ CACHE_DIR = os.path.join(get_data_home(), "mnist_benchmark_data")
 >>>>>>> b104d61 (Create bench_mnist.py)
 =======
 >>>>>>> 3c3b948 (Create bench_mnist.py)
+=======
+>>>>>>> f7194ee (Create bench_mnist.py)
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import classification_report
 
 # Cache data for faster access
 CACHE_DIR = os.path.join(os.getenv('HOME'), ".cache", "mnist_benchmark_data")
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -227,6 +237,8 @@ CACHE_DIR = os.path.join(get_data_home(), "mnist_benchmark_data")
 >>>>>>> 23c541b (Create bench_mnist.py)
 >>>>>>> 01d1340 (Create bench_mnist.py)
 >>>>>>> 3c3b948 (Create bench_mnist.py)
+=======
+>>>>>>> f7194ee (Create bench_mnist.py)
 memory = Memory(CACHE_DIR, mmap_mode="r")
 
 @memory.cache
@@ -242,6 +254,7 @@ def load_data(dtype=np.float32, order="C"):
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     n_train = 60000
     return X[:n_train], X[n_train:], y[:n_train], y[n_train:]
 =======
@@ -293,6 +306,9 @@ def load_data(dtype=np.float32, order="C"):
 >>>>>>> 23c541b (Create bench_mnist.py)
 >>>>>>> 01d1340 (Create bench_mnist.py)
 >>>>>>> 3c3b948 (Create bench_mnist.py)
+=======
+    return train_test_split(X, y, test_size=0.2, random_state=42)  # Split data into training and testing
+>>>>>>> f7194ee (Create bench_mnist.py)
 
 # Define classifiers
 ESTIMATORS = {
@@ -304,6 +320,7 @@ ESTIMATORS = {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     "ExtraTrees": ExtraTreesClassifier(),
     "RandomForest": RandomForestClassifier(),
     "Nystroem-SVM": make_pipeline(
@@ -325,6 +342,8 @@ ESTIMATORS = {
 >>>>>>> b104d61 (Create bench_mnist.py)
 =======
 >>>>>>> 3c3b948 (Create bench_mnist.py)
+=======
+>>>>>>> f7194ee (Create bench_mnist.py)
     "ExtraTrees": ExtraTreesClassifier(n_jobs=-1),  # Parallelize Extra Trees
     "RandomForest": RandomForestClassifier(n_jobs=-1),  # Parallelize Random Forest
     "Nystroem-SVM": make_pipeline(
@@ -335,6 +354,7 @@ ESTIMATORS = {
     ),
     "LogisticRegression-SAG": LogisticRegression(solver="sag", tol=1e-1, C=1e4, random_state=42),
     "LogisticRegression-SAGA": LogisticRegression(solver="saga", tol=1e-1, C=1e4, random_state=42),
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -406,6 +426,8 @@ ESTIMATORS = {
 >>>>>>> 23c541b (Create bench_mnist.py)
 >>>>>>> 01d1340 (Create bench_mnist.py)
 >>>>>>> 3c3b948 (Create bench_mnist.py)
+=======
+>>>>>>> f7194ee (Create bench_mnist.py)
     "MultilayerPerceptron": MLPClassifier(
         hidden_layer_sizes=(100, 100),
         max_iter=400,
@@ -420,6 +442,7 @@ ESTIMATORS = {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         random_state=1,
 =======
         random_state=42,
@@ -466,6 +489,9 @@ ESTIMATORS = {
 >>>>>>> 23c541b (Create bench_mnist.py)
 >>>>>>> 01d1340 (Create bench_mnist.py)
 >>>>>>> 3c3b948 (Create bench_mnist.py)
+=======
+        random_state=42,
+>>>>>>> f7194ee (Create bench_mnist.py)
     ),
     "MLP-adam": MLPClassifier(
         hidden_layer_sizes=(100, 100),
@@ -480,6 +506,7 @@ ESTIMATORS = {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         random_state=1,
 =======
         random_state=42,
@@ -526,6 +553,9 @@ ESTIMATORS = {
 >>>>>>> 23c541b (Create bench_mnist.py)
 >>>>>>> 01d1340 (Create bench_mnist.py)
 >>>>>>> 3c3b948 (Create bench_mnist.py)
+=======
+        random_state=42,
+>>>>>>> f7194ee (Create bench_mnist.py)
     ),
 }
 
@@ -540,6 +570,7 @@ def benchmark_classifiers(classifiers, X_train, X_test, y_train, y_test, n_jobs=
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         estimator = ESTIMATORS[name]
 
         # Configure estimator
@@ -601,6 +632,10 @@ def benchmark_classifiers(classifiers, X_train, X_test, y_train, y_test, n_jobs=
 >>>>>>> 23c541b (Create bench_mnist.py)
 >>>>>>> 01d1340 (Create bench_mnist.py)
 >>>>>>> 3c3b948 (Create bench_mnist.py)
+=======
+
+        estimator = ESTIMATORS[name]
+>>>>>>> f7194ee (Create bench_mnist.py)
         params = estimator.get_params()
         if "random_state" in params:
             estimator.set_params(random_state=random_seed)
@@ -626,6 +661,7 @@ def benchmark_classifiers(classifiers, X_train, X_test, y_train, y_test, n_jobs=
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> 23c541b (Create bench_mnist.py)
@@ -645,6 +681,8 @@ def benchmark_classifiers(classifiers, X_train, X_test, y_train, y_test, n_jobs=
 >>>>>>> 23c541b (Create bench_mnist.py)
 >>>>>>> 01d1340 (Create bench_mnist.py)
 >>>>>>> 3c3b948 (Create bench_mnist.py)
+=======
+>>>>>>> f7194ee (Create bench_mnist.py)
 
         # Print classification report for detailed metrics
         print(f"Classification report for {name}:\n{classification_report(y_test, y_pred)}\n")
@@ -654,6 +692,7 @@ def benchmark_classifiers(classifiers, X_train, X_test, y_train, y_test, n_jobs=
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> f7194ee (Create bench_mnist.py)
 =======
 =======
@@ -684,6 +723,8 @@ def benchmark_classifiers(classifiers, X_train, X_test, y_train, y_test, n_jobs=
 >>>>>>> 23c541b (Create bench_mnist.py)
 >>>>>>> 01d1340 (Create bench_mnist.py)
 >>>>>>> 3c3b948 (Create bench_mnist.py)
+=======
+>>>>>>> f7194ee (Create bench_mnist.py)
     return results
 
 def display_results(results):
