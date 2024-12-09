@@ -66,22 +66,22 @@ class DigitRecognizerApp:
 
     def recognize(self):
         """Recognize the digit drawn on the canvas."""
-        try:
+        # try:
             # Capture canvas content as an image
-            x = self.root.winfo_rootx() + self.canvas.winfo_x()
-            y = self.root.winfo_rooty() + self.canvas.winfo_y()
-            x1 = x + self.canvas.winfo_width()
-            y1 = y + self.canvas.winfo_height()
-            image = ImageGrab.grab().crop((x, y, x1, y1)).convert("L")
+        x = self.root.winfo_rootx() + self.canvas.winfo_x()
+        y = self.root.winfo_rooty() + self.canvas.winfo_y()
+        x1 = x + self.canvas.winfo_width()
+        y1 = y + self.canvas.winfo_height()
+        image = ImageGrab.grab().crop((x, y, x1, y1)).convert("L")
 
-            # Preprocess the image
-            image = image.resize((28, 28), Image.ANTIALIAS)  # Resize to 28x28
-            image = np.array(image)
-            image = cv2.bitwise_not(image)  # Invert colors for MNIST format
-            image = image / 255.0  # Normalize pixel values
-            image = image.reshape(1, 28, 28, 1)  # Reshape for model input
+        # Preprocess the image
+        image = image.resize((28, 28), Image.ANTIALIAS)  # Resize to 28x28
+        image = np.array(image)
+        image = cv2.bitwise_not(image)  # Invert colors for MNIST format
+        image = image / 255.0  # Normalize pixel values
+        image = image.reshape(1, 28, 28, 1)  # Reshape for model input
 
-            # Model prediction
+        # Model prediction
         prediction = model.predict(image)
         digit = np.argmax(prediction)
 

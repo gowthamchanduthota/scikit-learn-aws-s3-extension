@@ -1,40 +1,36 @@
 import unittest
 import numpy as np
-<<<<<<< HEAD
 import os
 import pandas as pd
-=======
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import os
 from pathlib import Path
->>>>>>> 8819a0f (Added testcase file)
 from PIL import Image
 import tensorflow as tf
 from tensorflow.keras.utils import load_img
 from sklearn.model_selection import train_test_split
-<<<<<<< HEAD
+
 from tensorflow.keras.layers import (Dropout, Input, Dense, BatchNormalization, Flatten, Conv2D,
                                      MaxPooling2D)
 from tensorflow.keras.models import Model
 from s3helper import S3Helper
 from DataGenerator import S3DataGenerator
 from ModelWrapper import S3ModelWrapper
-=======
+
 from tensorflow.keras.initializers import random_uniform, glorot_uniform, constant, identity
 from tensorflow.keras.layers import Dropout, Input, Add, Dense, Activation, BatchNormalization, Flatten, Conv2D, MaxPooling2D, GlobalMaxPooling2D
 from tensorflow.keras.models import Model, load_model
 from s3helper import *
 from DataGenerator import *
 from ModelWrapper import *
->>>>>>> 8819a0f (Added testcase file)
 
 DATASETS_BUCKET = "se-project-ext-datasets"
 OUTPUTS_BUCKET = "se-project-ext-outputs"
 
 class Sprint2Testing(unittest.TestCase):
-<<<<<<< HEAD
+
     def setUp(self):
         self.s3_helper = S3Helper(DATASETS_BUCKET, OUTPUTS_BUCKET)
         filenames = self.s3_helper.list_objects(DATASETS_BUCKET, "UTKFace")
@@ -74,7 +70,7 @@ class Sprint2Testing(unittest.TestCase):
 
         X = Conv2D(128, (4, 5), activation='relu')(X)
         X = MaxPooling2D((2, 2))(X)
-=======
+
     def __init__(self, *args, **kwargs):
         super(Sprint2Testing, self).__init__(*args, **kwargs)
         self.s3_helper = S3Helper(DATASETS_BUCKET, OUTPUTS_BUCKET)
@@ -127,13 +123,13 @@ class Sprint2Testing(unittest.TestCase):
 
         X = Conv2D(128, (3, 3), activation='relu')(X)
         X = MaxPooling2D((2, 2), strides=(2, 2))(X)
->>>>>>> 8819a0f (Added testcase file)
+
 
         X = Conv2D(256, (3, 3), activation='relu')(X)
         X = MaxPooling2D((2, 2))(X)
 
         X = Flatten()(X)
-<<<<<<< HEAD
+
         dense_shared = Dense(256, activation='relu')(X)
 
         output_gender = Dense(1, activation='sigmoid', name='gender_output')(Dropout(0.4)(dense_shared))
@@ -148,7 +144,6 @@ class Sprint2Testing(unittest.TestCase):
     def test_wrapper_predict(self):
         index = 28
         pred = self.model.predict(self.x_train[index:index+1])
-=======
 
         dense_1 = Dense(256, activation='relu')(X)
         dense_2 = Dense(256, activation='relu' )(X)
@@ -171,17 +166,15 @@ class Sprint2Testing(unittest.TestCase):
     def test_2_wrapper_predict(self):
         index=28
         pred = self.model.predict(self.x_train[index].reshape(1, 128, 128, 1))
->>>>>>> 8819a0f (Added testcase file)
+
+
         pred_gender = self.gender_dict[round(pred[0][0][0])]
         pred_age = round(pred[1][0][0])
         self.assertGreaterEqual(pred_age, 0)
         self.assertLessEqual(pred_age, 150)
 
-<<<<<<< HEAD
-    def test_fit_with_dg(self):
-=======
+
     def test_3_fit_with_dg(self):
->>>>>>> 8819a0f (Added testcase file)
         train_generator = S3DataGenerator(
             bucket_name=DATASETS_BUCKET,
             file_keys=self.train['image'].tolist(),
@@ -193,7 +186,7 @@ class Sprint2Testing(unittest.TestCase):
             shuffle=True
         )
         model_history = self.model.fit(train_generator, epochs=1, verbose=1)
-<<<<<<< HEAD
+
         self.assertIsNotNone(model_history.history)
 
     def test_predict_with_dg(self):
@@ -212,11 +205,6 @@ class Sprint2Testing(unittest.TestCase):
         self.assertGreaterEqual(pred_age, 0)
         self.assertLessEqual(pred_age, 150)
 
-if __name__ == '__main__':
-    unittest.main()
-=======
-        print(model_history)
-        self.assertIsNotNone(model_history)
 
     def test_4_predict_with_dg(self):
         index = 3  # Index of the sample you want to test
@@ -235,4 +223,3 @@ if __name__ == '__main__':
 
 if __name__ == '__main__':
     unittest.main()
->>>>>>> 8819a0f (Added testcase file)

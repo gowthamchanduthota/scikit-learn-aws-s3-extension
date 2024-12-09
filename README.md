@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 The scikit-learn-aws-s3-extension appears to be a tool designed for working with Scikit-learn models and data stored on AWS S3. One such implementation is provided in a project called s3 helpers. It allows for tasks like:
 
 Listing and managing files in S3 buckets using patterns.
@@ -73,3 +74,5 @@ The **S3 Helper** is a Python utility for easily interacting with AWS S3, suppor
 You need to configure AWS S3 as per standard practices for boto3 (environment variables or AWS CLI setup) and install the required library using:
 pip install s34me
 >>>>>>> 90fea9c (Update README.md)
+=======
+>>>>>>> 8742665b494ae5af4383a3d3b5a28133c157cf69
