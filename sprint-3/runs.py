@@ -11,7 +11,6 @@ from PIL import Image, ImageDraw, ImageGrab
 
 #load model
 from keras.models import load_model
-<<<<<<< HEAD
 
 # Load model
 model = load_model('model.h5')
@@ -21,11 +20,6 @@ print("Model loaded successfully, go for the app")
 root = Tk()
 root.resizable(0, 0)
 root.title("Handwritten Digit Recognition GUI App")
-=======
-model = load_model('model.h5')
-print("Model load Successfully, Go for the APP")
-
->>>>>>> f7341cf (Added digit rec)
 
 #create a main window first (named as root) •
 root = Tk( )
