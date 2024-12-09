@@ -20,7 +20,6 @@ class Sprint2Testing(unittest.TestCase):
         self.s3_helper = S3Helper(DATASETS_BUCKET, OUTPUTS_BUCKET)
         filenames = self.s3_helper.list_objects(DATASETS_BUCKET, "UTKFace")
         filenames = [os.path.basename(file) for file in filenames]
-
         np.random.seed(10)
         np.random.shuffle(filenames)
 
@@ -66,7 +65,6 @@ class Sprint2Testing(unittest.TestCase):
         output_age = Dense(1, activation='relu', name='age_output')(Dropout(0.4)(Dense(128, activation='relu')(dense_shared)))
 
         return Model(inputs=inputs, outputs=[output_gender, output_age])
-
     def test_wrapper_fit(self):
         model_history = self.model.fit(self.x_train, [self.y_gender, self.y_age], batch_size=10, epochs=1, validation_split=0.1)
         self.assertIsNotNone(model_history.history)

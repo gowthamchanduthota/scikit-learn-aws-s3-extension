@@ -1,4 +1,5 @@
 import argparse
+<<<<<<< HEAD
 import os
 import numpy as np
 import matplotlib.pyplot as plt
@@ -35,10 +36,28 @@ def main():
         type=str,
         default=os.path.join(LOG_DIR, "mnist_original_labels_10000.npy"),
         help="Path to 1D integer numpy array for labels",
+=======
+import os.path as op
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+LOG_DIR = "mnist_tsne_output"
+
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser("Plot benchmark results for t-SNE")
+    parser.add_argument(
+        "--labels",
+        type=str,
+        default=op.join(LOG_DIR, "mnist_original_labels_10000.npy"),
+        help="1D integer numpy array for labels",
+>>>>>>> 60fa4732632c76d24e33583051c4348a682a2303
     )
     parser.add_argument(
         "--embedding",
         type=str,
+<<<<<<< HEAD
         default=os.path.join(LOG_DIR, "mnist_sklearn_TSNE_10000.npy"),
         help="Path to 2D float numpy array for embedded data",
     )
@@ -53,3 +72,18 @@ def main():
 if __name__ == "__main__":
     main()
 
+=======
+        default=op.join(LOG_DIR, "mnist_sklearn_TSNE_10000.npy"),
+        help="2D float numpy array for embedded data",
+    )
+    args = parser.parse_args()
+
+    X = np.load(args.embedding)
+    y = np.load(args.labels)
+
+    for i in np.unique(y):
+        mask = y == i
+        plt.scatter(X[mask, 0], X[mask, 1], alpha=0.2, label=int(i))
+    plt.legend(loc="best")
+    plt.show()
+>>>>>>> 60fa4732632c76d24e33583051c4348a682a2303

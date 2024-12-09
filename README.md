@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 The scikit-learn-aws-s3-extension appears to be a tool designed for working with Scikit-learn models and data stored on AWS S3. One such implementation is provided in a project called s3 helpers. It allows for tasks like:
 
 Listing and managing files in S3 buckets using patterns.
@@ -76,3 +77,9 @@ pip install s34me
 >>>>>>> 90fea9c (Update README.md)
 =======
 >>>>>>> 8742665b494ae5af4383a3d3b5a28133c157cf69
+=======
+# scikit-learn-aws-s3-extension
+This extension integrates scikit-learn with AWS S3 to seamlessly handle saving and loading machine learning models, datasets, and other resources directly from Amazon S3 storage. It aims to provide an easy-to-use interface for managing scikit-learn models in the cloud, allowing you to store, retrieve, and version your models with minimal effort.
+Installation
+You can install the scikit-learn-aws-s3-extension from PyPI or from source.
+>>>>>>> 60fa4732632c76d24e33583051c4348a682a2303

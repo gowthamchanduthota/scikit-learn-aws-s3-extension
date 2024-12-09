@@ -5,6 +5,9 @@ import pickle
 import os
 from s3helper import *
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 60fa4732632c76d24e33583051c4348a682a2303
 import logging
 
 outputs_bucket = "se-project-ext-outputs"
@@ -106,6 +109,7 @@ def usage():
     score = s3_model.evaluate(X_test, y_test)
     print(f"Model test score: {score}")
 
+<<<<<<< HEAD
 =======
 
 outputs_bucket = "se-project-ext-outputs"
@@ -507,3 +511,5 @@ def usage():
 >>>>>>> adb9f45 (Added testcase file)
 =======
 >>>>>>> 8742665b494ae5af4383a3d3b5a28133c157cf69
+=======
+>>>>>>> 60fa4732632c76d24e33583051c4348a682a2303
