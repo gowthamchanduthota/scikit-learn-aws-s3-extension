@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 import tkinter as tk
 from PIL import ImageGrab, Image
 import numpy as np
@@ -9,7 +7,6 @@ import cv2
 # Load the trained model
 model = tf.keras.models.load_model("model.h5")
 
->>>>>>> 0824e24 (Update main.py)
 # Initialize the GUI
 class DigitRecognizerApp:
     def __init__(self, root):
@@ -49,11 +46,7 @@ class DigitRecognizerApp:
 
     def clear_canvas(self):
         self.canvas.delete("all")
-<<<<<<< HEAD
         self.status_label.config(text="Status: Canvas cleared", fg="blue")
-=======
-        self.drawing.clear()
->>>>>>> 0824e24 (Update main.py)
 
     def recognize(self):
         # Capture canvas content as an image
