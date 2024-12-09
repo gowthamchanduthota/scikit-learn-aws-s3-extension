@@ -57,12 +57,42 @@ class DigitRecognizerApp:
         )
         self.quit_button.grid(row=0, column=3, padx=10)
 
+        # Button to quit the app
+        self.quit_button = tk.Button(
+            self.button_frame, text="Quit", command=root.quit
+        )
+        self.quit_button.grid(row=0, column=3, padx=10)
+
     def draw(self, event):
         """Draw on the canvas."""
         x, y = event.x, event.y
         r = 8  # Radius of the drawn circle
         self.canvas.create_oval(x - r, y - r, x + r, y + r, fill="black")
 
+    def recognize(self):
+        # Capture canvas content as an image
+        x = self.root.winfo_rootx() + self.canvas.winfo_x()
+        y = self.root.winfo_rooty() + self.canvas.winfo_y()
+        x1 = x + self.canvas.winfo_width()
+        y1 = y + self.canvas.winfo_height()
+        image = ImageGrab.grab().crop((x, y, x1, y1)).convert("L")
+
+        # Process the image for bounding box detection
+        image_np = np.array(image)
+        _, thresh = cv2.threshold(image_np, 128, 255, cv2.THRESH_BINARY_INV)
+        contours, _ = cv2.findContours(thresh, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+
+            # Model prediction
+        prediction = model.predict(image)
+        digit = np.argmax(prediction)
+
+            # Display the result
+        messagebox.showinfo("Recognition Result", f"Predicted Digit: {digit}")
+
+        # except Exception as e:
+        #     messagebox.showerror("Error", f"An error occurred during recognition: {e}")
+
+        self.status_label.config(text="Status: Recognition complete", fg="green")
     def clear_canvas(self):
         """Clear the canvas."""
         self.canvas.delete("all")

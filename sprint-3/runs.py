@@ -2,12 +2,17 @@ import os
 import cv2
 import numpy as np
 from tkinter import *
-from PIL import ImageGrab
+
+from PIL import Image, ImageDraw, ImageGrab
+
+
+#load model
 from keras.models import load_model
 
 # Load model
 model = load_model('model.h5')
 print("Model loaded successfully, go for the app")
+
 
 # Create a main window (named as root)
 root = Tk()
@@ -18,11 +23,12 @@ root.title("Handwritten Digit Recognition GUI App")
 lastx, lasty = None, None
 image_number = 0
 
-
+# Clear the canvas
 def clear_widget():
     global cv
     # Clear the canvas
     cv.delete("all")
+    instruction_label.config(text="Draw a digit and click 'Recognize Digit' to predict.")
 
 
 def activate_event(event):
@@ -93,6 +99,10 @@ def recognize_digit():
     cv2.waitKey(0)
     cv2.destroyAllWindows()
 
+# Add a label for instructions at the top
+instruction_label = Label(root, text="Instructions: Draw a digit in the box below and click 'Recognize Digit'.",
+                          font=("Helvetica", 12), fg="blue")
+instruction_label.grid(row=0, column=0, columnspan=2, pady=10)
 
 # Create a canvas for drawing
 cv = Canvas(root, width=640, height=480, bg='white')

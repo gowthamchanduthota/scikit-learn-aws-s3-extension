@@ -26,20 +26,20 @@ class S3Helper:
             logger.info("Using provided AWS credentials.")
         else:
             self.s3 = boto3.client('s3')
-            
+
         self.datasets_bucket = datasets_bucket
         self.outputs_bucket = outputs_bucket
 
     def get_img(self, path, show=False, greyscale=False):
         filename = os.path.basename(path)
         self.s3.download_file(self.datasets_bucket, path, filename)
-        
+
         img = image.load_img(filename, color_mode="grayscale" if greyscale else "rgb")
         if show:
             plt.imshow(mpimg.imread(filename))
             plt.axis('off')
             plt.show()
-        
+
         os.remove(filename)
         return img
 
@@ -57,17 +57,17 @@ class S3Helper:
     def get_frac(self, frac, path="", random_seed=42, download_files=False):
         obj_list = self.list_objects(self.datasets_bucket, path)
         frac_len = int(len(obj_list) * frac)
-        
+
         random.seed(random_seed)
         rand_list = random.sample(obj_list, frac_len)
-        
+
         if download_files:
             for it in rand_list:
                 local_dir = os.path.dirname(it)
                 os.makedirs(local_dir, exist_ok=True)
                 self.s3.download_file(self.datasets_bucket, it, it)
             logger.info("Downloaded %d files to %s", frac_len, path)
-        
+
         return rand_list
 
 def main():
