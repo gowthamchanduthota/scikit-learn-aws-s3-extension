@@ -56,7 +56,7 @@ def recognize_digit():
 
     # Read the image in grayscale
     image = cv2.imread(filename, cv2.IMREAD_COLOR)
-    gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+    gray = cv2.cvtColor(image, cv2.COLOR_Black)
 
     # Apply Otsu's thresholding
     _, th = cv2.threshold(gray, 0, 255, cv2.THRESH_BINARY_INV + cv2.THRESH_OTSU)
@@ -64,9 +64,9 @@ def recognize_digit():
     # Find contours to detect digit bounding boxes
     contours, _ = cv2.findContours(th, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 
-    for cnt in contours:
+    for count in contours:
         # Get bounding box and extract the region of interest (ROI)
-        x, y, w, h = cv2.boundingRect(cnt)
+        x, y, w, h = cv2.boundingRect(count)
         cv2.rectangle(image, (x, y), (x + w, y + h), (255, 0, 0), 1)
 
         # Extract the ROI with some padding
