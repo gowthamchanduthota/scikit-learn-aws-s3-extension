@@ -89,21 +89,21 @@ class DigitRecognizerApp:
             image = image / 255.0  # Normalize pixel values
             image = image.reshape(1, 28, 28, 1)  # Reshape for model input
 
-        if contours:
-            self.status_label.config(text="Status: Recognizing digit...", fg="orange")
+            if contours:
+                self.status_label.config(text="Status: Recognizing digit...", fg="orange")
 
-        # Recognize each digit in bounding boxes
-        for contour in contours:
-            x, y, w, h = cv2.boundingRect(contour)
-            digit_image = image_np[y:y+h, x:x+w]
-            digit_image = cv2.resize(digit_image, (28, 28))
-            digit_image = digit_image / 255.0
-            digit_image = digit_image.reshape(1, 28, 28, 1)
-            prediction = model.predict(digit_image)
-            digit = np.argmax(prediction)
+            # Recognize each digit in bounding boxes
+            for contour in contours:
+                x, y, w, h = cv2.boundingRect(contour)
+                digit_image = image_np[y:y+h, x:x+w]
+                digit_image = cv2.resize(digit_image, (28, 28))
+                digit_image = digit_image / 255.0
+                digit_image = digit_image.reshape(1, 28, 28, 1)
+                prediction = model.predict(digit_image)
+                digit = np.argmax(prediction)
 
-            # Display the result
-            messagebox.showinfo("Recognition Result", f"Predicted Digit: {digit}")
+                # Display the result
+                messagebox.showinfo("Recognition Result", f"Predicted Digit: {digit}")
 
         except Exception as e:
             messagebox.showerror("Error", f"An error occurred during recognition: {e}")
