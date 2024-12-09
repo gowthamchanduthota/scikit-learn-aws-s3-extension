@@ -9,6 +9,4 @@ def decode(data):
     decoded_bytes = base64.b64decode(data)
     decoded_string = decoded_bytes.decode('utf-8')
     return decoded_string
-
-print(encode("AKIA4MI2JSNSQVVGU7QP"))
-print(encode("DABRHb8j51TyceoSOWsEAnkNedJHMatgy6O/IUsm"))
+xs
