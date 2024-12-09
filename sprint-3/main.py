@@ -7,7 +7,11 @@ import tensorflow as tf
 from tensorflow.keras.models import load_model
 
 # Load the pre-trained model (MNIST CNN model)
-model = load_model('mnist_cnn_model.h5')  # Make sure you have the model file
+try:
+    model = load_model('mnist_cnn_model.h5')  # Make sure you have the model file
+except Exception as e:
+    messagebox.showerror("Error", f"Failed to load model: {e}")
+    exit()
 
 class DigitRecognizerApp:
     def __init__(self, root):
@@ -15,7 +19,9 @@ class DigitRecognizerApp:
         self.root.title("Handwritten Digit Recognizer")
 
         # Add a title label
-        self.title_label = tk.Label(root, text="Draw a digit below and click Recognize", font=("Helvetica", 14))
+        self.title_label = tk.Label(
+            root, text="Draw a digit below and click Recognize", font=("Helvetica", 14)
+        )
         self.title_label.pack()
 
         # Create a canvas for drawing
@@ -28,41 +34,60 @@ class DigitRecognizerApp:
         self.status_label.pack()
 
         # Button to recognize digits
-        self.recognize_button = tk.Button(root, text="Recognize", command=self.recognize)
-        self.recognize_button.pack()
+        self.recognize_button = tk.Button(
+            self.button_frame, text="Recognize", command=self.recognize
+        )
+        self.recognize_button.grid(row=0, column=0, padx=10)
 
         # Button to clear the canvas
-        self.clear_button = tk.Button(root, text="Clear", command=self.clear_canvas)
-        self.clear_button.pack()
+        self.clear_button = tk.Button(
+            self.button_frame, text="Clear", command=self.clear_canvas
+        )
+        self.clear_button.grid(row=0, column=1, padx=10)
+
+        # Button to reset the app
+        self.reset_button = tk.Button(
+            self.button_frame, text="Reset", command=self.reset
+        )
+        self.reset_button.grid(row=0, column=2, padx=10)
 
         # Button to quit the app
-        self.quit_button = tk.Button(root, text="Quit", command=root.quit)
-        self.quit_button.pack()
+        self.quit_button = tk.Button(
+            self.button_frame, text="Quit", command=root.quit
+        )
+        self.quit_button.grid(row=0, column=3, padx=10)
 
     def draw(self, event):
-        # Draw on the canvas
+        """Draw on the canvas."""
         x, y = event.x, event.y
-        r = 8
+        r = 8  # Radius of the drawn circle
         self.canvas.create_oval(x - r, y - r, x + r, y + r, fill="black")
 
     def clear_canvas(self):
+        """Clear the canvas."""
         self.canvas.delete("all")
         self.status_label.config(text="Status: Canvas cleared", fg="blue")
 
-    def recognize(self):
-        # Capture canvas content as an image
-        x = self.root.winfo_rootx() + self.canvas.winfo_x()
-        y = self.root.winfo_rooty() + self.canvas.winfo_y()
-        x1 = x + self.canvas.winfo_width()
-        y1 = y + self.canvas.winfo_height()
-        image = ImageGrab.grab().crop((x, y, x1, y1)).convert("L")
+    def reset(self):
+        """Reset the canvas and any predictions."""
+        self.clear_canvas()
 
-        # Preprocess the image
-        image = image.resize((28, 28), Image.ANTIALIAS)  # Resize to 28x28 for the model
-        image = np.array(image)
-        image = cv2.bitwise_not(image)  # Invert colors to match MNIST (white digits on black background)
-        image = image / 255.0  # Normalize to range [0, 1]
-        image = image.reshape(1, 28, 28, 1)  # Reshape for the model input
+    def recognize(self):
+        """Recognize the digit drawn on the canvas."""
+        try:
+            # Capture canvas content as an image
+            x = self.root.winfo_rootx() + self.canvas.winfo_x()
+            y = self.root.winfo_rooty() + self.canvas.winfo_y()
+            x1 = x + self.canvas.winfo_width()
+            y1 = y + self.canvas.winfo_height()
+            image = ImageGrab.grab().crop((x, y, x1, y1)).convert("L")
+
+            # Preprocess the image
+            image = image.resize((28, 28), Image.ANTIALIAS)  # Resize to 28x28
+            image = np.array(image)
+            image = cv2.bitwise_not(image)  # Invert colors for MNIST format
+            image = image / 255.0  # Normalize pixel values
+            image = image.reshape(1, 28, 28, 1)  # Reshape for model input
 
         if contours:
             self.status_label.config(text="Status: Recognizing digit...", fg="orange")
@@ -77,11 +102,11 @@ class DigitRecognizerApp:
             prediction = model.predict(digit_image)
             digit = np.argmax(prediction)
 
-        # Display result on the canvas
-        messagebox.showinfo("Recognition Result", f"Predicted Digit: {digit}")
+            # Display the result
+            messagebox.showinfo("Recognition Result", f"Predicted Digit: {digit}")
 
-        # Optionally, draw the predicted digit on the canvas
-        self.canvas.create_text(150, 150, text=str(digit), font=("Helvetica", 24), fill="blue")
+        except Exception as e:
+            messagebox.showerror("Error", f"An error occurred during recognition: {e}")
 
         self.status_label.config(text="Status: Recognition complete", fg="green")
 
