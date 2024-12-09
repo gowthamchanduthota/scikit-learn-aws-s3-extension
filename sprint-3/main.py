@@ -1,4 +1,3 @@
-
 import tkinter as tk
 from PIL import ImageGrab, Image
 import numpy as np
@@ -42,6 +41,7 @@ class DigitRecognizerApp:
         x, y = event.x, event.y
         r = 8
         self.canvas.create_oval(x - r, y - r, x + r, y + r, fill="black")
+        self.drawing.append((x, y))
 
     def recognize(self):
         # Capture canvas content as an image
@@ -51,8 +51,10 @@ class DigitRecognizerApp:
         y1 = y + self.canvas.winfo_height()
         image = ImageGrab.grab().crop((x, y, x1, y1)).convert("L")
 
-        # Process the image for bounding box detection
+        # Convert to numpy array and process the image
         image_np = np.array(image)
+
+        # Preprocess the image
         _, thresh = cv2.threshold(image_np, 128, 255, cv2.THRESH_BINARY_INV)
         contours, _ = cv2.findContours(thresh, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 
