@@ -51,15 +51,15 @@ class DigitRecognizerApp:
         )
         self.quit_button.grid(row=0, column=3, padx=10)
 
-        # Store drawing data
-        self.drawing = []
+        # Button to quit the app
+        self.quit_button = tk.Button(root, text="Quit", command=root.quit)
+        self.quit_button.pack()
 
     def draw(self, event):
         """Draw on the canvas."""
         x, y = event.x, event.y
         r = 8  # Radius of the drawn circle
         self.canvas.create_oval(x - r, y - r, x + r, y + r, fill="black")
-        self.drawing.append((x, y))
 
 <<<<<<< HEAD
 =======
